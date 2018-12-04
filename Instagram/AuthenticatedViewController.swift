@@ -95,7 +95,7 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
         let post = feed[indexPath.row]
         let caption = post["caption"] as! String
-        let image = post["media"] as! PFFile
+//        let image = post["media"] as! PFFile
         let author = post["author"] as! PFUser
         let likeCount = post["likesCount"] as! Int
         
@@ -103,11 +103,11 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         // change the displayed icon by pulling from API
         cell.likesLabel.text = String(likeCount)
         cell.captionLabel.text = caption
-        cell.photoView.file = image
+//        cell.photoView.file = image
         cell.photoView.loadInBackground()
         cell.userLabel.text = author.username
         cell.userLabel2.text = author.username
-        cell.userView.file = author["image"] as? PFFile
+//        cell.userView.file = author["image"] as? PFFile
         cell.userView.loadInBackground()
         
         return cell

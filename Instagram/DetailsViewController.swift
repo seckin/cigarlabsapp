@@ -27,7 +27,7 @@ class DetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         if let post = post {
             let caption = post["caption"] as! String
-            let image = post["media"] as! PFFile
+//            let image = post["media"] as! PFFile
             let author = post["author"] as! PFUser
             let date = post.createdAt
             let dateFormatter = DateFormatter()
@@ -45,12 +45,12 @@ class DetailsViewController: UIViewController {
             
             likesLabel.text = String(likeCount)
             captionLabel.text = caption
-            photoView.file = image
+//            photoView.file = image
             photoView.loadInBackground()
             userLabel.text = author.username
             userLabel2.text = author.username
             timestampLabel.text = dateString
-            userView.file = author["image"] as? PFFile
+//            userView.file = author["image"] as? PFFile
             userView.loadInBackground()
         }
     }
