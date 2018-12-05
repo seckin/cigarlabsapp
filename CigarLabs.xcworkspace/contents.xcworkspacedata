@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Instagram.xcodeproj">
+      location = "group:/Users/seckin/Downloads/Insta-master/CigarLabs.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CigarLabs.xcodeproj">
    </FileRef>
 </Workspace>

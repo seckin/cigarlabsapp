@@ -1,6 +1,6 @@
 //
 //  CameraViewController.swift
-//  Instagram
+//  CigarLabs
 //
 //  Created by NICK on 2/8/18.
 //  Copyright © 2018 NICK. All rights reserved.

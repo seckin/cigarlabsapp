@@ -20,7 +20,10 @@
 		01CC9C86202CBA35003099ED /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC9C85202CBA35003099ED /* PostViewController.swift */; };
 		01CC9C88202CDAF3003099ED /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC9C87202CDAF3003099ED /* Post.swift */; };
 		05BFCB8C21B7595900A16EDB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BFCB8B21B7595900A16EDB /* Launch Screen.storyboard */; };
+		09442FB48FEE530BBD95C699 /* Pods_CigarLabsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B67CF3917590AC8EBAEC250 /* Pods_CigarLabsTests.framework */; };
 		5641E21EB8F83EA7C1D54087 /* Pods_InstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49531992BC670B97F7FC91E9 /* Pods_InstagramUITests.framework */; };
+		6DC82E5ED1805F37989C4E95 /* Pods_CigarLabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB54C609FDF52AE211030D63 /* Pods_CigarLabs.framework */; };
+		9F68FD0426DD81C279B75A6B /* Pods_CigarLabsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15AD48B197C8915D3A15105 /* Pods_CigarLabsUITests.framework */; };
 		B21E36A1DAF31CD050645FD6 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 487BC5F45B7CF62748DF19C0 /* Pods_Instagram.framework */; };
 		FCB4B9B33EAE202B4EFF8BAD /* Pods_InstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A44EBE2C04AA561E773FAF /* Pods_InstagramTests.framework */; };
 /* End PBXBuildFile section */
@@ -31,29 +34,29 @@
 			containerPortal = 015668AC20227F8700385EF2 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 015668B320227F8700385EF2;
-			remoteInfo = Instagram;
+			remoteInfo = CigarLabs;
 		};
 		015668D420227F8800385EF2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 015668AC20227F8700385EF2 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 015668B320227F8700385EF2;
-			remoteInfo = Instagram;
+			remoteInfo = CigarLabs;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0113F9A1202E0C52004D7709 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		015668B420227F8700385EF2 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		015668B420227F8700385EF2 /* CigarLabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CigarLabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015668B720227F8700385EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		015668B920227F8700385EF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		015668BC20227F8700385EF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		015668BE20227F8700385EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015668C320227F8700385EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		015668C820227F8800385EF2 /* InstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		015668C820227F8800385EF2 /* CigarLabsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CigarLabsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		015668CC20227F8800385EF2 /* InstagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramTests.swift; sourceTree = "<group>"; };
 		015668CE20227F8800385EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		015668D320227F8800385EF2 /* InstagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		015668D320227F8800385EF2 /* CigarLabsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CigarLabsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		015668D720227F8800385EF2 /* InstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUITests.swift; sourceTree = "<group>"; };
 		015668D920227F8800385EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01CC9C3F20228AE1003099ED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -62,14 +65,23 @@
 		01CC9C85202CBA35003099ED /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		01CC9C87202CDAF3003099ED /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		05BFCB8B21B7595900A16EDB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1490B301F52F1492C649610B /* Pods-CigarLabsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarLabsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CigarLabsUITests/Pods-CigarLabsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2657E1821ADEEFBCBC56A6E4 /* Pods-CigarLabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarLabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-CigarLabs/Pods-CigarLabs.release.xcconfig"; sourceTree = "<group>"; };
 		312167E48129B37313349F61 /* Pods-InstagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AABC45E35165BF5B25D7FAB /* Pods-InstagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.release.xcconfig"; sourceTree = "<group>"; };
 		487BC5F45B7CF62748DF19C0 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49531992BC670B97F7FC91E9 /* Pods_InstagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B67CF3917590AC8EBAEC250 /* Pods_CigarLabsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CigarLabsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D5F6BF852363E3A13F4FB5F /* Pods-CigarLabs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarLabs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CigarLabs/Pods-CigarLabs.debug.xcconfig"; sourceTree = "<group>"; };
 		710E94153B4CBA2B96F09F6C /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
+		78BB50315D9F3F66423E352B /* Pods-CigarLabsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarLabsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CigarLabsUITests/Pods-CigarLabsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7D168D730260787135CC213C /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		8C00220DD6DD57E67B03D0F0 /* Pods-InstagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramUITests/Pods-InstagramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A925D28809352DB54E82BC35 /* Pods-CigarLabsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarLabsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CigarLabsTests/Pods-CigarLabsTests.release.xcconfig"; sourceTree = "<group>"; };
+		C15AD48B197C8915D3A15105 /* Pods_CigarLabsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CigarLabsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB54C609FDF52AE211030D63 /* Pods_CigarLabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CigarLabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0ED5AAF2350E326EC4B547 /* Pods-InstagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramUITests/Pods-InstagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F705621B4DD89692A92C2192 /* Pods-CigarLabsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarLabsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CigarLabsTests/Pods-CigarLabsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7A44EBE2C04AA561E773FAF /* Pods_InstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B21E36A1DAF31CD050645FD6 /* Pods_Instagram.framework in Frameworks */,
+				6DC82E5ED1805F37989C4E95 /* Pods_CigarLabs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCB4B9B33EAE202B4EFF8BAD /* Pods_InstagramTests.framework in Frameworks */,
+				09442FB48FEE530BBD95C699 /* Pods_CigarLabsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5641E21EB8F83EA7C1D54087 /* Pods_InstagramUITests.framework in Frameworks */,
+				9F68FD0426DD81C279B75A6B /* Pods_CigarLabsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +119,9 @@
 		015668AB20227F8700385EF2 = {
 			isa = PBXGroup;
 			children = (
-				015668B620227F8700385EF2 /* Instagram */,
-				015668CB20227F8800385EF2 /* InstagramTests */,
-				015668D620227F8800385EF2 /* InstagramUITests */,
+				015668B620227F8700385EF2 /* CigarLabs */,
+				015668CB20227F8800385EF2 /* CigarLabsTests */,
+				015668D620227F8800385EF2 /* CigarLabsUITests */,
 				015668B520227F8700385EF2 /* Products */,
 				5070965E55797E971132D824 /* Pods */,
 				8C650D6738AF241EFD10F15C /* Frameworks */,
@@ -116,14 +131,14 @@
 		015668B520227F8700385EF2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				015668B420227F8700385EF2 /* Instagram.app */,
-				015668C820227F8800385EF2 /* InstagramTests.xctest */,
-				015668D320227F8800385EF2 /* InstagramUITests.xctest */,
+				015668B420227F8700385EF2 /* CigarLabs.app */,
+				015668C820227F8800385EF2 /* CigarLabsTests.xctest */,
+				015668D320227F8800385EF2 /* CigarLabsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		015668B620227F8700385EF2 /* Instagram */ = {
+		015668B620227F8700385EF2 /* CigarLabs */ = {
 			isa = PBXGroup;
 			children = (
 				015668B720227F8700385EF2 /* AppDelegate.swift */,
@@ -139,25 +154,25 @@
 				0113F9A1202E0C52004D7709 /* DetailsViewController.swift */,
 				05BFCB8B21B7595900A16EDB /* Launch Screen.storyboard */,
 			);
-			path = Instagram;
+			path = CigarLabs;
 			sourceTree = "<group>";
 		};
-		015668CB20227F8800385EF2 /* InstagramTests */ = {
+		015668CB20227F8800385EF2 /* CigarLabsTests */ = {
 			isa = PBXGroup;
 			children = (
 				015668CC20227F8800385EF2 /* InstagramTests.swift */,
 				015668CE20227F8800385EF2 /* Info.plist */,
 			);
-			path = InstagramTests;
+			path = CigarLabsTests;
 			sourceTree = "<group>";
 		};
-		015668D620227F8800385EF2 /* InstagramUITests */ = {
+		015668D620227F8800385EF2 /* CigarLabsUITests */ = {
 			isa = PBXGroup;
 			children = (
 				015668D720227F8800385EF2 /* InstagramUITests.swift */,
 				015668D920227F8800385EF2 /* Info.plist */,
 			);
-			path = InstagramUITests;
+			path = CigarLabsUITests;
 			sourceTree = "<group>";
 		};
 		5070965E55797E971132D824 /* Pods */ = {
@@ -169,6 +184,12 @@
 				3AABC45E35165BF5B25D7FAB /* Pods-InstagramTests.release.xcconfig */,
 				EE0ED5AAF2350E326EC4B547 /* Pods-InstagramUITests.debug.xcconfig */,
 				8C00220DD6DD57E67B03D0F0 /* Pods-InstagramUITests.release.xcconfig */,
+				5D5F6BF852363E3A13F4FB5F /* Pods-CigarLabs.debug.xcconfig */,
+				2657E1821ADEEFBCBC56A6E4 /* Pods-CigarLabs.release.xcconfig */,
+				F705621B4DD89692A92C2192 /* Pods-CigarLabsTests.debug.xcconfig */,
+				A925D28809352DB54E82BC35 /* Pods-CigarLabsTests.release.xcconfig */,
+				1490B301F52F1492C649610B /* Pods-CigarLabsUITests.debug.xcconfig */,
+				78BB50315D9F3F66423E352B /* Pods-CigarLabsUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -179,6 +200,9 @@
 				487BC5F45B7CF62748DF19C0 /* Pods_Instagram.framework */,
 				F7A44EBE2C04AA561E773FAF /* Pods_InstagramTests.framework */,
 				49531992BC670B97F7FC91E9 /* Pods_InstagramUITests.framework */,
+				DB54C609FDF52AE211030D63 /* Pods_CigarLabs.framework */,
+				5B67CF3917590AC8EBAEC250 /* Pods_CigarLabsTests.framework */,
+				C15AD48B197C8915D3A15105 /* Pods_CigarLabsUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -186,9 +210,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		015668B320227F8700385EF2 /* Instagram */ = {
+		015668B320227F8700385EF2 /* CigarLabs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 015668DC20227F8800385EF2 /* Build configuration list for PBXNativeTarget "Instagram" */;
+			buildConfigurationList = 015668DC20227F8800385EF2 /* Build configuration list for PBXNativeTarget "CigarLabs" */;
 			buildPhases = (
 				B161036F94696D4287176D19 /* [CP] Check Pods Manifest.lock */,
 				015668B020227F8700385EF2 /* Sources */,
@@ -200,14 +224,14 @@
 			);
 			dependencies = (
 			);
-			name = Instagram;
-			productName = Instagram;
-			productReference = 015668B420227F8700385EF2 /* Instagram.app */;
+			name = CigarLabs;
+			productName = CigarLabs;
+			productReference = 015668B420227F8700385EF2 /* CigarLabs.app */;
 			productType = "com.apple.product-type.application";
 		};
-		015668C720227F8800385EF2 /* InstagramTests */ = {
+		015668C720227F8800385EF2 /* CigarLabsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 015668DF20227F8800385EF2 /* Build configuration list for PBXNativeTarget "InstagramTests" */;
+			buildConfigurationList = 015668DF20227F8800385EF2 /* Build configuration list for PBXNativeTarget "CigarLabsTests" */;
 			buildPhases = (
 				DB00FA3147ECEB16444966F0 /* [CP] Check Pods Manifest.lock */,
 				015668C420227F8800385EF2 /* Sources */,
@@ -219,14 +243,14 @@
 			dependencies = (
 				015668CA20227F8800385EF2 /* PBXTargetDependency */,
 			);
-			name = InstagramTests;
-			productName = InstagramTests;
-			productReference = 015668C820227F8800385EF2 /* InstagramTests.xctest */;
+			name = CigarLabsTests;
+			productName = CigarLabsTests;
+			productReference = 015668C820227F8800385EF2 /* CigarLabsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		015668D220227F8800385EF2 /* InstagramUITests */ = {
+		015668D220227F8800385EF2 /* CigarLabsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 015668E220227F8800385EF2 /* Build configuration list for PBXNativeTarget "InstagramUITests" */;
+			buildConfigurationList = 015668E220227F8800385EF2 /* Build configuration list for PBXNativeTarget "CigarLabsUITests" */;
 			buildPhases = (
 				42F9477045D802AF3833FDC0 /* [CP] Check Pods Manifest.lock */,
 				015668CF20227F8800385EF2 /* Sources */,
@@ -238,9 +262,9 @@
 			dependencies = (
 				015668D520227F8800385EF2 /* PBXTargetDependency */,
 			);
-			name = InstagramUITests;
-			productName = InstagramUITests;
-			productReference = 015668D320227F8800385EF2 /* InstagramUITests.xctest */;
+			name = CigarLabsUITests;
+			productName = CigarLabsUITests;
+			productReference = 015668D320227F8800385EF2 /* CigarLabsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -269,7 +293,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 015668AF20227F8700385EF2 /* Build configuration list for PBXProject "Instagram" */;
+			buildConfigurationList = 015668AF20227F8700385EF2 /* Build configuration list for PBXProject "CigarLabs" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -282,9 +306,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				015668B320227F8700385EF2 /* Instagram */,
-				015668C720227F8800385EF2 /* InstagramTests */,
-				015668D220227F8800385EF2 /* InstagramUITests */,
+				015668B320227F8700385EF2 /* CigarLabs */,
+				015668C720227F8800385EF2 /* CigarLabsTests */,
+				015668D220227F8800385EF2 /* CigarLabsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -328,7 +352,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-InstagramUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CigarLabsUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -341,7 +365,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Instagram/Pods-Instagram-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-CigarLabs/Pods-CigarLabs-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -360,7 +384,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Instagram/Pods-Instagram-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CigarLabs/Pods-CigarLabs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B161036F94696D4287176D19 /* [CP] Check Pods Manifest.lock */ = {
@@ -374,7 +398,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Instagram-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CigarLabs-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -392,7 +416,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-InstagramTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CigarLabsTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -438,12 +462,12 @@
 /* Begin PBXTargetDependency section */
 		015668CA20227F8800385EF2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 015668B320227F8700385EF2 /* Instagram */;
+			target = 015668B320227F8700385EF2 /* CigarLabs */;
 			targetProxy = 015668C920227F8800385EF2 /* PBXContainerItemProxy */;
 		};
 		015668D520227F8800385EF2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 015668B320227F8700385EF2 /* Instagram */;
+			target = 015668B320227F8700385EF2 /* CigarLabs */;
 			targetProxy = 015668D420227F8800385EF2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -569,13 +593,13 @@
 		};
 		015668DD20227F8800385EF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 710E94153B4CBA2B96F09F6C /* Pods-Instagram.debug.xcconfig */;
+			baseConfigurationReference = 5D5F6BF852363E3A13F4FB5F /* Pods-CigarLabs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Instagram/Info.plist;
+				INFOPLIST_FILE = CigarLabs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.CigarLabs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -584,13 +608,13 @@
 		};
 		015668DE20227F8800385EF2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D168D730260787135CC213C /* Pods-Instagram.release.xcconfig */;
+			baseConfigurationReference = 2657E1821ADEEFBCBC56A6E4 /* Pods-CigarLabs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Instagram/Info.plist;
+				INFOPLIST_FILE = CigarLabs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.Instagram;
+				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.CigarLabs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -599,74 +623,74 @@
 		};
 		015668E020227F8800385EF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 312167E48129B37313349F61 /* Pods-InstagramTests.debug.xcconfig */;
+			baseConfigurationReference = F705621B4DD89692A92C2192 /* Pods-CigarLabsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = InstagramTests/Info.plist;
+				INFOPLIST_FILE = CigarLabsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.InstagramTests;
+				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.CigarLabsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instagram.app/Instagram";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CigarLabs.app/CigarLabs";
 			};
 			name = Debug;
 		};
 		015668E120227F8800385EF2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AABC45E35165BF5B25D7FAB /* Pods-InstagramTests.release.xcconfig */;
+			baseConfigurationReference = A925D28809352DB54E82BC35 /* Pods-CigarLabsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = InstagramTests/Info.plist;
+				INFOPLIST_FILE = CigarLabsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.InstagramTests;
+				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.CigarLabsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instagram.app/Instagram";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CigarLabs.app/CigarLabs";
 			};
 			name = Release;
 		};
 		015668E320227F8800385EF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE0ED5AAF2350E326EC4B547 /* Pods-InstagramUITests.debug.xcconfig */;
+			baseConfigurationReference = 1490B301F52F1492C649610B /* Pods-CigarLabsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = InstagramUITests/Info.plist;
+				INFOPLIST_FILE = CigarLabsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.InstagramUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.CigarLabsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Instagram;
+				TEST_TARGET_NAME = CigarLabs;
 			};
 			name = Debug;
 		};
 		015668E420227F8800385EF2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C00220DD6DD57E67B03D0F0 /* Pods-InstagramUITests.release.xcconfig */;
+			baseConfigurationReference = 78BB50315D9F3F66423E352B /* Pods-CigarLabsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = InstagramUITests/Info.plist;
+				INFOPLIST_FILE = CigarLabsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.InstagramUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = NickBuildsIOS.CigarLabsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Instagram;
+				TEST_TARGET_NAME = CigarLabs;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		015668AF20227F8700385EF2 /* Build configuration list for PBXProject "Instagram" */ = {
+		015668AF20227F8700385EF2 /* Build configuration list for PBXProject "CigarLabs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				015668DA20227F8800385EF2 /* Debug */,
@@ -675,7 +699,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		015668DC20227F8800385EF2 /* Build configuration list for PBXNativeTarget "Instagram" */ = {
+		015668DC20227F8800385EF2 /* Build configuration list for PBXNativeTarget "CigarLabs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				015668DD20227F8800385EF2 /* Debug */,
@@ -684,7 +708,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		015668DF20227F8800385EF2 /* Build configuration list for PBXNativeTarget "InstagramTests" */ = {
+		015668DF20227F8800385EF2 /* Build configuration list for PBXNativeTarget "CigarLabsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				015668E020227F8800385EF2 /* Debug */,
@@ -693,7 +717,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		015668E220227F8800385EF2 /* Build configuration list for PBXNativeTarget "InstagramUITests" */ = {
+		015668E220227F8800385EF2 /* Build configuration list for PBXNativeTarget "CigarLabsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				015668E320227F8800385EF2 /* Debug */,

@@ -1,0 +1,6 @@
+framework module Pods_CigarLabs {
+  umbrella header "Pods-CigarLabs-umbrella.h"
+
+  export *
+  module * { export * }
+}

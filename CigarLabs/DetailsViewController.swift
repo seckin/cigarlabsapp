@@ -49,7 +49,7 @@ class DetailsViewController: UIViewController {
     }
     
     
-    @IBAction func InstagramBackButtonTapped(_ sender: Any) {
+    @IBAction func CigarLabsBackButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "DetailView", sender: nil)
         
     }

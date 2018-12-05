@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'Instagram' do
+target 'CigarLabs' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
@@ -11,12 +11,12 @@ target 'Instagram' do
   pod 'ParseLiveQuery'
   pod 'MBProgressHUD'
 
-  target 'InstagramTests' do
+  target 'CigarLabsTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'InstagramUITests' do
+  target 'CigarLabsUITests' do
     inherit! :search_paths
     # Pods for testing
   end

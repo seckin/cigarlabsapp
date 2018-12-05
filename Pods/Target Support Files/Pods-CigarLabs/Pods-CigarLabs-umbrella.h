@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_InstagramUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_InstagramUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_CigarLabsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_CigarLabsVersionString[];
 

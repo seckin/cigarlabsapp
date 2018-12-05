@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="UITextField">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
         <!--AuthenticatedViewController-->
         <scene sceneID="g6s-Mo-An1">
             <objects>
-                <viewController storyboardIdentifier="AuthenticatedViewController" title="AuthenticatedViewController" id="pwf-kV-R9k" customClass="AuthenticatedViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthenticatedViewController" title="AuthenticatedViewController" id="pwf-kV-R9k" customClass="AuthenticatedViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fyq-8R-h1L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="520" id="GTX-NY-n6R" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="520" id="GTX-NY-n6R" customClass="PostTableViewCell" customModule="CigarLabs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="520"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GTX-NY-n6R" id="FCy-Xf-lCF">
@@ -260,7 +260,7 @@
         <scene sceneID="UGy-7l-Kac">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rde-lO-iKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="ProfileViewController" id="lii-sr-DfK" customClass="ProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="lii-sr-DfK" customClass="ProfileViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aBB-Kt-YMz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -328,7 +328,7 @@
         <!--Details View Controller-->
         <scene sceneID="axY-lK-0Kt">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" id="wzj-sZ-BoN" customClass="DetailsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="wzj-sZ-BoN" customClass="DetailsViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tby-AW-d95"/>
                         <viewControllerLayoutGuide type="bottom" id="l4X-Bh-UhD"/>
@@ -434,7 +434,7 @@
         <!--Post View Controller-->
         <scene sceneID="dlh-wI-AZg">
             <objects>
-                <viewController storyboardIdentifier="PostViewController" id="zz4-qi-w5w" customClass="PostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostViewController" id="zz4-qi-w5w" customClass="PostViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cPp-vu-PMm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
