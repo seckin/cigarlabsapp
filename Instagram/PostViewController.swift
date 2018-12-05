@@ -40,8 +40,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 //        }
         // segue to home vc
         
-        //self.performSegue(withIdentifier: "AuthenticatedViewController", sender: nil)
-
+        self.performSegue(withIdentifier: "AuthenticatedViewController", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +49,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -58,6 +57,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

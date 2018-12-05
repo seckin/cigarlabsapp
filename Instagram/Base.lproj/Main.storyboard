@@ -474,6 +474,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="captionField" destination="f09-G2-gco" id="bRq-9p-gRf"/>
+                        <segue destination="pwf-kV-R9k" kind="show" identifier="AuthenticatedViewController" id="u2R-6o-HiB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVC-J6-gRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -507,4 +508,7 @@
         <image name="liked" width="16" height="16"/>
         <image name="profile_tab" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="u2R-6o-HiB"/>
+    </inferredMetricsTieBreakers>
 </document>

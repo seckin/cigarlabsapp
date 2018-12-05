@@ -1,10 +1,3 @@
-//
-//  AuthenticatedViewController.swift
-//  Instagram
-//
-//  Created by NICK on 2/4/18.
-//  Copyright © 2018 NICK. All rights reserved.
-//
 
 import UIKit
 import Parse
