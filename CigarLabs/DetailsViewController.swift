@@ -5,7 +5,6 @@ import Parse
 class DetailsViewController: UIViewController {
 
     @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var photoView: PFImageView!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var userLabel: UILabel!
@@ -27,7 +26,6 @@ class DetailsViewController: UIViewController {
             dateFormatter.dateStyle = .short
             dateFormatter.timeStyle = .short
             let dateString = dateFormatter.string(from: date!)
-            let likeCount = post["likesCount"] as! Int
             
             // Sets circle profile picture viewer
             userView.layer.borderWidth = 1
@@ -36,7 +34,6 @@ class DetailsViewController: UIViewController {
             userView.layer.cornerRadius = userView.frame.height/2
             userView.clipsToBounds = true
             
-            likesLabel.text = String(likeCount)
             captionLabel.text = caption
 //            photoView.file = image
             photoView.loadInBackground()

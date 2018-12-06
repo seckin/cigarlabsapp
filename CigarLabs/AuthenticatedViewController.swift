@@ -74,10 +74,7 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         print("called postcell")
         let indexPath = tableViewPosts.indexPath(for: cell)!
         let post = feed[indexPath.row]
-        let likes = (post["likesCount"] as? Int)! + 1
-        post["likesCount"] = likes
         post.saveInBackground()
-        cell.likeButton.isSelected = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,14 +87,10 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         let caption = post["caption"] as! String
 //        let image = post["media"] as! PFFile
         let author = post["author"] as! PFUser
-        let likeCount = post["likesCount"] as! Int
-        
-        // on like, add current user to list of users who liked the post and
-        // change the displayed icon by pulling from API
-        cell.likesLabel.text = String(likeCount)
-        cell.captionLabel.text = caption
+
+//        cell.captionLabel.text = caption
 //        cell.photoView.file = image
-        cell.photoView.loadInBackground()
+//        cell.photoView.loadInBackground()
         cell.userLabel.text = author.username
         cell.userLabel2.text = author.username
 //        cell.userView.file = author["image"] as? PFFile
