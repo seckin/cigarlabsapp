@@ -92,10 +92,10 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
 //        cell.photoView.file = image
 //        cell.photoView.loadInBackground()
         cell.userLabel.text = author.username
-        cell.userLabel2.text = author.username
+//        cell.userLabel2.text = author.username
 //        cell.userView.file = author["image"] as? PFFile
-        cell.userView.loadInBackground()
-        
+//        cell.userView.loadInBackground()
+
         return cell
     }
     

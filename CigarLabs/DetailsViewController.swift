@@ -5,12 +5,11 @@ import Parse
 class DetailsViewController: UIViewController {
 
     @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var photoView: PFImageView!
-    @IBOutlet weak var timestampLabel: UILabel!
+//    @IBOutlet weak var photoView: PFImageView!
+//    @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var userLabel: UILabel!
-    @IBOutlet weak var userLabel2: UILabel!
-    @IBOutlet weak var userView: PFImageView!
-    
+//    @IBOutlet weak var userView: PFImageView!
+
     var post: PFObject?
     
     override func viewDidLoad() {
@@ -18,30 +17,30 @@ class DetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         if let post = post {
-            let caption = post["caption"] as! String
+            let caption = post["caption"] as? String
 //            let image = post["media"] as! PFFile
-            let author = post["author"] as! PFUser
-            let date = post.createdAt
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .short
-            dateFormatter.timeStyle = .short
-            let dateString = dateFormatter.string(from: date!)
-            
+            let author = post["author"] as? PFUser
+//            let date = post.createdAt
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateStyle = .short
+//            dateFormatter.timeStyle = .short
+//            let dateString = dateFormatter.string(from: date!)
+
             // Sets circle profile picture viewer
-            userView.layer.borderWidth = 1
-            userView.layer.masksToBounds = false
-            userView.layer.borderColor = UIColor.white.cgColor
-            userView.layer.cornerRadius = userView.frame.height/2
-            userView.clipsToBounds = true
-            
+//            userView.layer.borderWidth = 1
+//            userView.layer.masksToBounds = false
+//            userView.layer.borderColor = UIColor.white.cgColor
+//            userView.layer.cornerRadius = userView.frame.height/2
+//            userView.clipsToBounds = true
+
             captionLabel.text = caption
 //            photoView.file = image
-            photoView.loadInBackground()
-            userLabel.text = author.username
-            userLabel2.text = author.username
-            timestampLabel.text = dateString
+//            photoView.loadInBackground()
+            userLabel.text = author?.username
+//            userLabel2.text = author.username
+//            timestampLabel.text = dateString
 //            userView.file = author["image"] as? PFFile
-            userView.loadInBackground()
+//            userView.loadInBackground()
         }
     }
     
