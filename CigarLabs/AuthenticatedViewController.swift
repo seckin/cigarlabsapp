@@ -88,7 +88,7 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
 //        let image = post["media"] as! PFFile
         let author = post["author"] as! PFUser
 
-//        cell.captionLabel.text = caption
+        cell.captionLabel.text = caption
 //        cell.photoView.file = image
 //        cell.photoView.loadInBackground()
         cell.userLabel.text = author.username

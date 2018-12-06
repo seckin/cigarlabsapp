@@ -24,20 +24,22 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func onShare(_ sender: Any) {
         //  MBProgressHUD.showAdded(to: self.view, animated: true)
         print("onShare was called")
-//        captionPost = captionField.text ?? ""
-//        Post.postUserImage(image: imagePost, withCaption: captionPost) { (status: Bool, error: Error?) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else {
-//                print("Post successful")
-//                //       MBProgressHUD.hide(for: self.view, animated: true)
-//                //Goes back to feed after posting
-//                self.tabBarController?.selectedIndex = 0
-//                //Reset photo selected
+        captionPost = captionField.text ?? ""
+        print("caption:")
+        print(captionPost)
+        Post.postUserImage(withCaption: captionPost) { (status: Bool, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Post successful")
+                //       MBProgressHUD.hide(for: self.view, animated: true)
+                //Goes back to feed after posting
+                self.tabBarController?.selectedIndex = 0
+                //Reset photo selected
 //                self.imagePost = UIImage(named: "imageName")
-//                self.captionPost = ""
-//            }
-//        }
+                self.captionPost = ""
+            }
+        }
         // segue to home vc
         
         self.performSegue(withIdentifier: "AuthenticatedViewController", sender: nil)
