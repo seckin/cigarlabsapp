@@ -3,8 +3,7 @@ import UIKit
 import Parse
 
 class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostTableViewCellDelegate {
-    
-    
+
     @IBOutlet weak var tableViewPosts: UITableView!
     var refreshControl: UIRefreshControl!
     var feed: [PFObject] = []
@@ -28,19 +27,13 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
     
     
     @IBAction func logOutPressed(_ sender: Any) {
-        
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.logOut()
         print("Logout Pressed")
-        /*
-         PFUser.logOutInBackgroundWithBlock { (error:NSError?) in
-         // PFUser.current() will now be nil
-         } */
     }
-    
-    
+
     func pullRefresh() {
         var feedPosts: [PFObject] = []
         let query = PFQuery(className: "Post")
@@ -67,8 +60,7 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         pullRefresh()
         refreshControl.endRefreshing()
     }
-    
-    
+
     // from PostTableViewCellDelegate
     func postCell(_ cell: PostTableViewCell, didLike post: PFObject?) {
         print("called postcell")
@@ -85,16 +77,10 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
         let post = feed[indexPath.row]
         let caption = post["caption"] as! String
-//        let image = post["media"] as! PFFile
         let author = post["author"] as! PFUser
 
         cell.captionLabel.text = caption
-//        cell.photoView.file = image
-//        cell.photoView.loadInBackground()
         cell.userLabel.text = author.username
-//        cell.userLabel2.text = author.username
-//        cell.userView.file = author["image"] as? PFFile
-//        cell.userView.loadInBackground()
 
         return cell
     }
@@ -111,13 +97,13 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidAppear(_ animated: Bool) {
         let hidden = self.navigationController?.isNavigationBarHidden
         print(hidden)
-    }*/
+    }
+    */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

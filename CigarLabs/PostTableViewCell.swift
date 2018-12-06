@@ -20,19 +20,10 @@ class PostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        // Sets circle profile picture viewer
-//        userView.layer.borderWidth = 1
-//        userView.layer.masksToBounds = false
-//        userView.layer.borderColor = UIColor.white.cgColor
-//        userView.layer.cornerRadius = userView.frame.height/2
-//        userView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

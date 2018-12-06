@@ -4,7 +4,6 @@ import Parse
 
 class Post: NSObject {
 
-//    @NSManaged var media : PFFile
     @NSManaged var author: PFUser
     @NSManaged var caption: String
     
@@ -30,7 +29,6 @@ class Post: NSObject {
         let post = PFObject(className: "Post")
         
         // Add relevant fields to the object
-//        post["media"] = getPFFileFromImage(image: image) // PFFile column type
         post["author"] = PFUser.current() // Pointer column type that points to PFUser
         post["caption"] = caption
         

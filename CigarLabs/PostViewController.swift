@@ -14,19 +14,12 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
 
     override func viewDidAppear(_ animated: Bool) {
-//        if self.imagePost == UIImage(named: "imageName") {
-//            self.imagePost = UIImage(named: "imageName")
-//            self.captionPost = ""
-////            present(alertController, animated: true)
-//        }
     }
     
     @IBAction func onShare(_ sender: Any) {
         //  MBProgressHUD.showAdded(to: self.view, animated: true)
         print("onShare was called")
         captionPost = captionField.text ?? ""
-        print("caption:")
-        print(captionPost)
         Post.postUserImage(withCaption: captionPost) { (status: Bool, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
@@ -49,8 +42,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 
     // MARK: - Navigation
 
@@ -59,6 +50,4 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-
-
 }
