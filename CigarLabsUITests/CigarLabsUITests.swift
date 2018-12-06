@@ -1,14 +1,7 @@
-//
-//  InstagramUITests.swift
-//  InstagramUITests
-//
-//  Created by NICK on 1/31/18.
-//  Copyright © 2018 NICK. All rights reserved.
-//
 
 import XCTest
 
-class InstagramUITests: XCTestCase {
+class CigarLabsUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
