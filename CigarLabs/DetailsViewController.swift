@@ -48,7 +48,7 @@ class DetailsViewController: UIViewController {
 
 //            let countLabel = UILabel(frame: CGRect(x : 0.0,y : 0.0,width : size, height :  size))
             countLabel.text = "70"
-            countLabel.textColor = UIColor.black
+            countLabel.textColor = UIColor.darkGray
             countLabel.textAlignment = .center
 //            countLabel.font = UIFont.systemFont(ofSize: 24.0)
 //            countLabel.layer.cornerRadius = size / 2
@@ -75,7 +75,7 @@ class DetailsViewController: UIViewController {
             let myCountLabelAttrString = NSAttributedString(string: myCountLabelString, attributes: myCountLabelAttribute)
             // set attributed text on a UILabel
             setCountLabel.attributedText = myCountLabelAttrString
-            setCountLabel.textColor = UIColor.black
+            setCountLabel.textColor = UIColor.darkGray
             setCountLabel.textAlignment = .center
             //            setCountLabel.font = UIFont.systemFont(ofSize: 24.0)
             //            setCountLabel.layer.cornerRadius = size / 2
