@@ -6,6 +6,10 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var downLabel: UILabel!
+    @IBOutlet weak var upLabel: UILabel!
+    @IBOutlet weak var setCountLabel: UILabel!
 
     var post: PFObject?
 
@@ -26,6 +30,71 @@ class DetailsViewController: UIViewController {
 
             captionLabel.text = caption
             userLabel.text = author?.username
+
+            let circlePath = UIBezierPath(arcCenter: CGPoint(x: 200,y: 350), radius: CGFloat(100), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.path = circlePath.cgPath
+            //change the fill color
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            //you can change the stroke color
+            shapeLayer.strokeColor = UIColor.gray.cgColor
+            //you can change the line width
+            shapeLayer.lineWidth = 3.0
+            view.layer.addSublayer(shapeLayer)
+
+
+
+            let size:CGFloat = 55.0
+
+//            let countLabel = UILabel(frame: CGRect(x : 0.0,y : 0.0,width : size, height :  size))
+            countLabel.text = "70"
+            countLabel.textColor = UIColor.black
+            countLabel.textAlignment = .center
+//            countLabel.font = UIFont.systemFont(ofSize: 24.0)
+//            countLabel.layer.cornerRadius = size / 2
+//            countLabel.layer.borderWidth = 3.0
+//            countLabel.layer.masksToBounds = true
+//            countLabel.layer.backgroundColor = UIColor.orange.cgColor
+//            countLabel.layer.borderColor = UIColor.orange.cgColor
+
+
+            let smallCirclePath = UIBezierPath(arcCenter: CGPoint(x: 200,y: 515), radius: CGFloat(50), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+            let smallShapeLayer = CAShapeLayer()
+            smallShapeLayer.path = smallCirclePath.cgPath
+            //change the fill color
+            smallShapeLayer.fillColor = UIColor.clear.cgColor
+            //you can change the stroke color
+            smallShapeLayer.strokeColor = UIColor.gray.cgColor
+            //you can change the line width
+            smallShapeLayer.lineWidth = 2.0
+            view.layer.addSublayer(smallShapeLayer)
+
+            //            let setCountLabel = UILabel(frame: CGRect(x : 0.0,y : 0.0,width : size, height :  size))
+            let myCountLabelString = "SET\u{000A}70"
+            let myCountLabelAttribute = [NSFontAttributeName: UIFont(name: "Verdana", size: 22)!]
+            let myCountLabelAttrString = NSAttributedString(string: myCountLabelString, attributes: myCountLabelAttribute)
+            // set attributed text on a UILabel
+            setCountLabel.attributedText = myCountLabelAttrString
+            setCountLabel.textColor = UIColor.black
+            setCountLabel.textAlignment = .center
+            //            setCountLabel.font = UIFont.systemFont(ofSize: 24.0)
+            //            setCountLabel.layer.cornerRadius = size / 2
+            //            setCountLabel.layer.borderWidth = 3.0
+            //            setCountLabel.layer.masksToBounds = true
+            //            setCountLabel.layer.backgroundColor = UIColor.orange.cgColor
+            //            setCountLabel.layer.borderColor = UIColor.orange.cgColor
+
+            let myString = "\u{2303}"
+            let myAttribute = [NSFontAttributeName: UIFont(name: "Verdana", size: 37)!]
+            let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+            // set attributed text on a UILabel
+            upLabel.attributedText = myAttrString
+
+            let myString2 = "\u{2304}"
+            let myAttribute2 = [NSFontAttributeName: UIFont(name: "Verdana", size: 37)!]
+            let myAttrString2 = NSAttributedString(string: myString2, attributes: myAttribute2)
+            // set attributed text on a UILabel
+            downLabel.attributedText = myAttrString2
         }
     }
 
