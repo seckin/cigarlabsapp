@@ -12,6 +12,7 @@ PODS:
     - Bolts-Swift (~> 1.3.0)
     - Parse (~> 1.17.0)
     - Starscream (~> 3.0.4)
+  - QuickTableViewController (1.0.0)
   - Starscream (3.0.6)
 
 DEPENDENCIES:
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - Parse
   - Parse/UI
   - ParseLiveQuery
+  - QuickTableViewController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -27,6 +29,7 @@ SPEC REPOS:
     - MBProgressHUD
     - Parse
     - ParseLiveQuery
+    - QuickTableViewController
     - Starscream
 
 SPEC CHECKSUMS:
@@ -35,8 +38,9 @@ SPEC CHECKSUMS:
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
   ParseLiveQuery: 0ea078a12015d64070d0ae07da32fae3d3198c42
+  QuickTableViewController: a49fb6dc5623b9dbe301a03ac5c563099e234fbc
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: 3a716a3d60ff7fa89ba2f6b6d5f2bbe0a0a5a3ae
+PODFILE CHECKSUM: 4642aa9740de1add3e803349fd37cae346f06daa
 
 COCOAPODS: 1.5.3

@@ -10,6 +10,7 @@ target 'CigarLabs' do
   pod 'Parse/UI'
   pod 'ParseLiveQuery'
   pod 'MBProgressHUD'
+  pod 'QuickTableViewController'
 
   target 'CigarLabsTests' do
     inherit! :search_paths
