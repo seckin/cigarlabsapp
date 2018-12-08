@@ -9,27 +9,35 @@ class HumidifierSettingsViewController: QuickTableViewController {
         super.viewDidLoad()
 
         tableContents = [
-            Section(title: "Switch", rows: [
-                SwitchRow(title: "Setting 1", switchValue: true, action: { _ in }),
-                SwitchRow(title: "Setting 2", switchValue: false, action: { _ in }),
+            RadioSection(title: "Temperature reading:", options: [
+                OptionRow(title: "Celcius", isSelected: true, action: didToggleOption()),
+                OptionRow(title: "Fahrenheit", isSelected: false, action: didToggleOption()),
                 ]),
 
-            Section(title: "Tap Action", rows: [
-                TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
+            RadioSection(title: "Adjust Power Level:", options: [
+                OptionRow(title: "Low", isSelected: false, action: didToggleOption()),
+                OptionRow(title: "Medium", isSelected: true, action: didToggleOption()),
+                OptionRow(title: "High", isSelected: false, action: didToggleOption())
+                ], footer: "See app settings for more details on power levels."),
+
+            Section(title: "", rows: [
+                SwitchRow(title: "Box Open Alerts", switchValue: true, action: { _ in }),
+                SwitchRow(title: "Water Level Alerts", switchValue: false, action: { _ in }),
+                SwitchRow(title: "Seasoning Mode", switchValue: false, action: { _ in }),
+                SwitchRow(title: "Sentry Mode", switchValue: false, action: { _ in }),
                 ]),
 
-            Section(title: "Navigation", rows: [
-                NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
-                NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
-                NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { _ in }),
-                NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
-                ]),
+//            Section(title: "Tap Action", rows: [
+//                TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
+//                ]),
 
-            RadioSection(title: "Radio Buttons", options: [
-                OptionRow(title: "Option 1", isSelected: true, action: didToggleOption()),
-                OptionRow(title: "Option 2", isSelected: false, action: didToggleOption()),
-                OptionRow(title: "Option 3", isSelected: false, action: didToggleOption())
-                ], footer: "See RadioSection for more details.")
+//            Section(title: "Navigation", rows: [
+//                NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
+//                NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
+//                NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { _ in }),
+//                NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
+//                ]),
+
         ]
     }
 
