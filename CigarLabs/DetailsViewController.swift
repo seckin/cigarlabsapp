@@ -11,6 +11,14 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var upLabel: UILabel!
     @IBOutlet weak var setCountLabel: UILabel!
 
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
+    @IBOutlet weak var smallCircleSettingButton: UIButton!
+    @IBOutlet weak var bigCircleSettingButton: UIButton!
+
+    var currentHumidity: Int!
+    var setButtonCount: Int! // TODO: initialize this to the number read from the DB
+
     var post: PFObject?
 
     override func viewDidLoad() {
@@ -44,10 +52,12 @@ class DetailsViewController: UIViewController {
 
 
 
-            let size:CGFloat = 55.0
+            currentHumidity = post["temperature"] as? Int
+            setButtonCount = currentHumidity
+//            let size:CGFloat = 55.0
 
 //            let countLabel = UILabel(frame: CGRect(x : 0.0,y : 0.0,width : size, height :  size))
-            countLabel.text = "70"
+            countLabel.text = String(currentHumidity)
             countLabel.textColor = UIColor.darkGray
             countLabel.textAlignment = .center
 //            countLabel.font = UIFont.systemFont(ofSize: 24.0)
@@ -70,7 +80,7 @@ class DetailsViewController: UIViewController {
             view.layer.addSublayer(smallShapeLayer)
 
             //            let setCountLabel = UILabel(frame: CGRect(x : 0.0,y : 0.0,width : size, height :  size))
-            let myCountLabelString = "SET\u{000A}70"
+            let myCountLabelString = "SET\u{000A} " + String(setButtonCount)
             let myCountLabelAttribute = [NSFontAttributeName: UIFont(name: "Verdana", size: 22)!]
             let myCountLabelAttrString = NSAttributedString(string: myCountLabelString, attributes: myCountLabelAttribute)
             // set attributed text on a UILabel
@@ -101,6 +111,50 @@ class DetailsViewController: UIViewController {
     @IBAction func CigarLabsBackButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "DetailView", sender: nil)
         
+    }
+
+    @IBAction func upButtonTapped(_ sender: Any) {
+        setButtonCount += 1
+        let myCountLabelString = "SET\u{000A} " + String(setButtonCount)
+        let myCountLabelAttribute = [NSFontAttributeName: UIFont(name: "Verdana", size: 22)!]
+        let myCountLabelAttrString = NSAttributedString(string: myCountLabelString, attributes: myCountLabelAttribute)
+        // set attributed text on a UILabel
+        setCountLabel.attributedText = myCountLabelAttrString
+        setCountLabel.textColor = UIColor.darkGray
+        setCountLabel.textAlignment = .center
+    }
+
+    @IBAction func downButtonTapped(_ sender: Any) {
+        setButtonCount -= 1
+        let myCountLabelString = "SET\u{000A} " + String(setButtonCount)
+        let myCountLabelAttribute = [NSFontAttributeName: UIFont(name: "Verdana", size: 22)!]
+        let myCountLabelAttrString = NSAttributedString(string: myCountLabelString, attributes: myCountLabelAttribute)
+        // set attributed text on a UILabel
+        setCountLabel.attributedText = myCountLabelAttrString
+        setCountLabel.textColor = UIColor.darkGray
+        setCountLabel.textAlignment = .center
+    }
+
+    @IBAction func setButtonTapped(_ sender: Any) {
+        if let post = post {
+            post["temperature"] = setButtonCount
+    //        ProgressHUD.showSuccess("Update successful")
+            post.saveInBackground()
+
+//            post.saveInBackground { (success: Bool, error: Error?) in
+//                completion?(success, error)
+//            }
+        }
+
+        // TODO: make a db call
+        currentHumidity = setButtonCount
+        countLabel.text = String(currentHumidity)
+        countLabel.textColor = UIColor.darkGray
+        countLabel.textAlignment = .center
+    }
+
+    @IBAction func bigCircleTapped(_ sender: Any) {
+        // TODO: show the settings page
     }
     
     override func didReceiveMemoryWarning() {
