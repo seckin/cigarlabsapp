@@ -335,7 +335,7 @@
                                 <rect key="frame" x="125" y="275" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="uYS-9b-qfD" kind="presentation" id="Qd0-bg-swm"/>
+                                    <segue destination="uYS-9b-qfD" kind="show" id="Qd0-bg-swm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uL-jk-gFA">
@@ -443,10 +443,10 @@
             </objects>
             <point key="canvasLocation" x="1206" y="-304"/>
         </scene>
-        <!--Humidifer Settings Controller-->
+        <!--Humidifer Settings-->
         <scene sceneID="NhC-fA-6sY">
             <objects>
-                <viewController title="Humidifer Settings Controller" id="uYS-9b-qfD" customClass="HumidifierSettingsViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Humidifer Settings" id="uYS-9b-qfD" customClass="HumidifierSettingsViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wsZ-Zn-H5k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
