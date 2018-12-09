@@ -19,27 +19,28 @@ open class SwipeMenuViewController: UIViewController, SwipeMenuViewDelegate, Swi
         swipeMenuView.willChangeOrientation()
     }
 
-    open override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    open override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         addSwipeMenuViewConstraints()
     }
 
     private func addSwipeMenuViewConstraints() {
 
         swipeMenuView.translatesAutoresizingMaskIntoConstraints = false
+
         if #available(iOS 11.0, *), view.hasSafeAreaInsets, swipeMenuView.options.tabView.isSafeAreaEnabled {
             NSLayoutConstraint.activate([
-                swipeMenuView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                swipeMenuView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                swipeMenuView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                swipeMenuView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                swipeMenuView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+                swipeMenuView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                swipeMenuView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                swipeMenuView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             ])
         } else {
             NSLayoutConstraint.activate([
-                swipeMenuView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor),
-                swipeMenuView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                swipeMenuView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                swipeMenuView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                swipeMenuView.topAnchor.constraint(equalTo: self.view.topAnchor),
+                swipeMenuView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                swipeMenuView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                swipeMenuView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             ])
         }
     }
@@ -47,22 +48,22 @@ open class SwipeMenuViewController: UIViewController, SwipeMenuViewDelegate, Swi
     // MARK: - SwipeMenuViewDelegate
     open func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewWillSetupAt currentIndex: Int) { }
     open func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewDidSetupAt currentIndex: Int) { }
+
     open func swipeMenuView(_ swipeMenuView: SwipeMenuView, willChangeIndexFrom fromIndex: Int, to toIndex: Int) { }
+
     open func swipeMenuView(_ swipeMenuView: SwipeMenuView, didChangeIndexFrom fromIndex: Int, to toIndex: Int) { }
 
     // MARK: - SwipeMenuViewDataSource
 
     open func numberOfPages(in swipeMenuView: SwipeMenuView) -> Int {
-        return children.count
+        return 0
     }
 
     open func swipeMenuView(_ swipeMenuView: SwipeMenuView, titleForPageAt index: Int) -> String {
-        return children[index].title ?? ""
+        return ""
     }
 
     open func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
-        let vc = children[index]
-        vc.didMove(toParent: self)
-        return vc
+        return UIViewController()
     }
 }

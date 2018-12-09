@@ -198,11 +198,28 @@
                         <segue destination="oGX-Ce-SD1" kind="relationship" relationship="viewControllers" id="BqG-ES-OYm"/>
                         <segue destination="DIz-Wq-6ai" kind="relationship" relationship="viewControllers" id="hgr-tU-kMc"/>
                         <segue destination="D28-hT-IZK" kind="relationship" relationship="viewControllers" id="EyT-cB-OJe"/>
+                        <segue destination="t2A-92-uX6" kind="relationship" relationship="viewControllers" id="1qe-Sb-YVx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czG-cR-V7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="23" y="-304"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="IGT-Cy-0ip">
+            <objects>
+                <viewController id="t2A-92-uX6" customClass="NewDeviceInfoViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0DE-oc-1zd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Rk9-fE-l5t"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="yk3-Ky-Mgm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QTy-gP-crK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833" y="-427"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="UGy-7l-Kac">
@@ -218,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rde-lO-iKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130" y="525"/>
+            <point key="canvasLocation" x="1972" y="525"/>
         </scene>
         <!--Profile-->
         <scene sceneID="CTC-Ve-OqH">
@@ -417,7 +434,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7Z-fY-Dul" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="-304"/>
+            <point key="canvasLocation" x="1705" y="-304"/>
         </scene>
         <!--Humidifer Settings-->
         <scene sceneID="NhC-fA-6sY">

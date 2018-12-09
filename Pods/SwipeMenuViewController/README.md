@@ -1,9 +1,15 @@
-# SwipeMenuViewController
+<p align="center">
+  <img src="https://github.com/yysskk/Assets/blob/master/SwipeMenuViewController/Banner.png" width="800">
+</p>
 
-[![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=for-the-badge)](https://developer.apple.com/iphone/index.action)
-[![Cocoapods](https://img.shields.io/badge/Cocoapods-compatible-brightgreen.svg?style=for-the-badge)](https://img.shields.io/badge/Cocoapods-compatible-brightgreen.svg)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=for-the-badge)](https://github.com/Carthage/Carthage)
-[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=for-the-badge)](http://mit-license.org)
+[![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat
+)](https://developer.apple.com/iphone/index.action)
+![Swift](https://img.shields.io/badge/Swift-3.2-orange.svg)
+[![Cocoapods](https://img.shields.io/badge/Cocoapods-compatible-brightgreen.svg)](https://img.shields.io/badge/Cocoapods-compatible-brightgreen.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
+)](http://mit-license.org)
+![pod](https://img.shields.io/badge/pod-v1.2.0-red.svg)
 
 ## Overview
 SwipeMenuViewController provides `SwipeMenuView` and `SwipeMenuViewController`.
@@ -24,7 +30,7 @@ Here are some style of demos with snippets using `SwipeMenuView`.
         swipeMenuView.dataSource                      = self
         var options: SwipeMenuViewOptions             = .init()
         options.tabView.style                         = .segmented
-        options.tabView.additionView.backgroundColor  = UIColor.customUnderlineColor
+        options.tabView.underlineView.backgroundColor = UIColor.customUnderlineColor
         options.tabView.itemView.textColor            = UIColor.customTextColor
         options.tabView.itemView.selectedTextColor    = UIColor.customSelectedTextColor
         swipeMenuView.reload(options: options)
@@ -55,12 +61,12 @@ Here are some style of demos with snippets using `SwipeMenuView`.
         var options: SwipeMenuViewOptions               = .init()
         options.tabView.style                           = .flexible
         options.tabView.margin                          = 8.0
-        options.tabView.additionView.backgroundColor    = UIColor.customUnderlineColor
+        options.tabView.underlineView.backgroundColor   = UIColor.customUnderlineColor
         options.tabView.backgroundColor                 = UIColor.customBackgroundColor
-        options.tabView.additionView.height             = 3.0
+        options.tabView.underlineView.height            = 3.0
         options.tabView.itemView.textColor              = UIColor.customTextColor
         options.tabView.itemView.selectedTextColor      = .white
-        options.tabView.itemView.padding                = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        options.tabView.itemView.margin                 = 10.0
         options.contentScrollView.backgroundColor       = UIColor.customBackgroundColor
         swipeMenuView.reload(options: options)
     }
@@ -96,23 +102,6 @@ github "yysskk/SwipeMenuViewController"
 ```
 
 and run `carthage update`
-
-## Versioning
-### ~ 1.1.5
-- Xcode 8.x
-- Swift 3.x
-
-### 1.2.0
-- Xcode 9.x
-- Swift 3.2
-
-### 2.0.0 ~
-- Xcode 9.x
-- Swift 4.0, 4.1
-
-### 3.0.0 ~
-- Xcode 10.x
-- Swift 4.2 ~
 
 ## Usage
 ### SwipeMenuView
@@ -242,22 +231,19 @@ extension CustomViewController {
 `SwipeMenuView` has the following methods.
 
 ```swift
-// Reloads all `SwipeMenuView` item views with the dataSource and refreshes the display.
+// setup `SwipeMenuView` with the dataSource.
+func setup()
+
+// reloads all `SwipeMenuView` item views with the dataSource and refreshes the display.
 func reloadData(options: SwipeMenuViewOptions? = nil, isOrientationChange: Bool = false)
 
-// Jump to the selected page.
+// jump to the selected page.
 func jump(to index: Int, animated: Bool)
 
-// Notify changing orientaion to `SwipeMenuView` before it.
+// notify changing orientaion to `SwipeMenuView` before it.
 func willChangeOrientation()
 ```
 
-`TabView` has the following methods.
-```swift
-
-/// Reloads all `TabView` item views with the dataSource and refreshes the display.
-public func reloadData(options: SwipeMenuViewOptions.TabView? = nil, default defaultIndex: Int? = nil)
-```
 
 ### Protocols
 `SwipeMenuViewDataSource` and `SwipeMenuViewDelegate` has the following methods.
@@ -271,12 +257,6 @@ func swipeMenuView(_ swipeMenuView: SwipeMenuView, titleForPageAt index: Int) ->
 
 // Return a ViewController to be displayed at the specified page in `SwipeMenuView`.
 func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController
-
-/// Called before setup self.
-func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewWillSetupAt currentIndex: Int)
-
-/// Called after setup self.
-func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewDidSetupAt currentIndex: Int)
 
 // Called before swiping the page.
 func swipeMenuView(_ swipeMenuView: SwipeMenuView, willChangeIndexFrom fromIndex: Int, to toIndex: Int)
@@ -299,16 +279,6 @@ open weak var dataSource: SwipeMenuDataSource!
 private(set) var currentIndex
 ```
 
-`TabView` has the following properties.
-```swift
-
-// An object conforms `TabViewDelegate`. Provide views to populate the `TabView`.
-open weak var tabViewDelegate: TabViewDelegate?
-
-// An object conforms `TabViewDataSource`. Provide views and respond to `TabView` events.
-open weak var dataSource: TabViewDataSource?
-```
-
 ### Customization
 `SwipeMenuView` is customizable by designated options property when calling `reloadData()` method.
 Here are many properties of `SwipeMenuViewOptions` which you are able to customize it for your needs.
@@ -322,16 +292,13 @@ public var height: CGFloat
 // TabView side margin. Defaults to `0.0`.
 public var margin: CGFloat
 
-// TabView background color. Defaults to `.clear`.
+// TabView background color. Defaults to `.white`.
 public var backgroundColor: UIColor
-
-// TabView clipsToBounds. Defaults to `true`.
-public var clipsToBounds: Bool = true
 
 // TabView style. Defaults to `.flexible`. Style type has [`.flexible` , `.segmented`].
 public var style: Style
 
-// TabView addition. Defaults to `.underline`. Addition type has [`.underline`, `.circle`, `.none`].
+// TabView addition. Defaults to `.underline`. Addition type has [`.underline`, `.none`].
 public var addition: Addition
 
 // TabView adjust width or not. Defaults to `true`.
@@ -339,9 +306,6 @@ public var needsAdjustItemViewWidth: Bool
 
 // Convert the text color of ItemView to selected text color by scroll rate of ContentScrollView. Defaults to `true`.
 public var needsConvertTextColorRatio: Bool
-
-// TabView enable safeAreaLayout. Defaults to `true`.
-public var isSafeAreaEnabled: Bool
 ```
 
 ##### ItemView
@@ -356,9 +320,6 @@ public var margin: CGFloat
 // ItemView font. Defaults to `14 pt as bold SystemFont`.
 public var font: UIFont
 
-// ItemView clipsToBounds. Defaults to `true`.
-public var clipsToBounds: Bool = true
-
 // ItemView textColor. Defaults to `.lightGray`.
 public var textColor: UIColor
 
@@ -366,26 +327,20 @@ public var textColor: UIColor
 public var selectedTextColor: UIColor
 ```
 
-##### AdditionView
+##### UndelineView
 
 ```swift
-// AdditionView height. Defaults to `2.0`.
+// UndelineView height. Defaults to `2.0`.
 public var height: CGFloat
 
-// AdditionView padding. Defaults to `.zero`.
-public var padding: UIEdgeInsets
+// UndelineView side margin. Defaults to `0.0`.
+public var margin: CGFloat
 
-// AdditionView backgroundColor. Defaults to `.black`.
+// UndelineView backgroundColor. Defaults to `.black`.
 public var backgroundColor: UIColor
 
-// AdditionView animating duration. Defaults to `0.3`.
-public var animationDuration: Double
-
-// Underline style options.
-public var underline = Underline()
-
-// Circle style options.
-public var circle = Circle()
+// UnderlineView animating duration. Defaults to `0.3`.
+public var animationDuration: CGFloat
 ```
 
 #### ContentScrollView
@@ -394,20 +349,20 @@ public var circle = Circle()
 // ContentScrollView backgroundColor. Defaults to `.clear`.
 public var backgroundColor: UIColor
 
-// ContentScrollView clipsToBounds. Defaults to `true`.
-public var clipsToBounds: Bool = true
-
 // ContentScrollView scroll enabled. Defaults to `true`.
 public var isScrollEnabled: Bool
-
-// ContentScrollView enable safeAreaLayout. Defaults to `true`.
-public var isSafeAreaEnabled: Bool
 ```
+
+## Requirements
+- Xcode 8.0+
+- Swift 3.0+
 
 ## Creator
 ### Yusuke Morishita
 - [Github](https://github.com/yysskk)
+- [Facebook](https://www.facebook.com/yysskk.mrst)
 - [Twitter](https://twitter.com/_yysskk)
+
 
 ## License
 `SwipeMenuViewController` is available under the MIT license. See the [LICENSE](./LICENSE) file for more info.

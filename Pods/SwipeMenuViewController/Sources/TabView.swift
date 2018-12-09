@@ -1,47 +1,25 @@
 import UIKit
 
-// MARK: - TabViewDelegate
+public protocol TabViewDataSource {
 
-public protocol TabViewDelegate: class {
-
-    /// Called before selecting the tab.
-    func tabView(_ tabView: TabView, willSelectTabAt index: Int)
-
-    /// Called after selecting the tab.
-    func tabView(_ tabView: TabView, didSelectTabAt index: Int)
-}
-
-extension TabViewDelegate {
-    public func tabView(_ tabView: TabView, willSelectTabAt index: Int) {}
-
-    public func tabView(_ tabView: TabView, didSelectTabAt index: Int) {}
-}
-
-// MARK: - TabViewDataSource
-
-public protocol TabViewDataSource: class {
-
-    /// Return the number of Items in `TabView`.
     func numberOfItems(in tabView: TabView) -> Int
 
-    /// Return strings to be displayed at the tab in `TabView`.
     func tabView(_ tabView: TabView, titleForItemAt index: Int) -> String?
 }
 
 open class TabView: UIScrollView {
 
-    open weak var tabViewDelegate: TabViewDelegate?
-    open weak var dataSource: TabViewDataSource?
+    open var dataSource: TabViewDataSource!
 
     var itemViews: [TabItemView] = []
 
     fileprivate let containerView: UIStackView = UIStackView()
 
-    fileprivate var additionView: UIView = .init()
+    fileprivate var underlineView: UIView = .init()
 
     fileprivate var currentIndex: Int = 0
 
-    fileprivate(set) var options: SwipeMenuViewOptions.TabView = SwipeMenuViewOptions.TabView()
+    fileprivate var options: SwipeMenuViewOptions.TabView = SwipeMenuViewOptions.TabView()
 
     private var leftMarginConstraint: NSLayoutConstraint = .init()
     private var widthConstraint: NSLayoutConstraint = .init()
@@ -59,12 +37,12 @@ open class TabView: UIScrollView {
     }
 
     open override func didMoveToSuperview() {
-        reloadData()
+        setup()
     }
 
     open override func layoutSubviews() {
         super.layoutSubviews()
-        resetAdditionViewPosition(index: currentIndex)
+        resetUnderlineViewPosition(index: currentIndex)
     }
 
     @available(iOS 11.0, *)
@@ -77,6 +55,22 @@ open class TabView: UIScrollView {
         }
 
         layoutIfNeeded()
+    }
+
+    public func reset() {
+
+        itemViews.forEach { $0.removeFromSuperview() }
+        underlineView.removeFromSuperview()
+        containerView.removeFromSuperview()
+        itemViews = []
+    }
+
+    public func update(_ index: Int) {
+
+        if currentIndex == index { return }
+
+        currentIndex = index
+        updateSelectedItem(by: currentIndex)
     }
 
     fileprivate func focus(on target: UIView, animated: Bool = true) {
@@ -105,44 +99,13 @@ open class TabView: UIScrollView {
 
     // MARK: - Setup
 
-    /// Reloads all `TabView` item views with the dataSource and refreshes the display.
-    public func reloadData(options: SwipeMenuViewOptions.TabView? = nil,
-                           default defaultIndex: Int? = nil,
-                           animated: Bool = true) {
-
-        if let options = options {
-            self.options = options
-        }
+    fileprivate func setup() {
 
         reset()
-
-        guard let dataSource = dataSource,
-            dataSource.numberOfItems(in: self) > 0 else { return }
-
         setupScrollView()
-        setupContainerView(dataSource: dataSource)
-        setupTabItemViews(dataSource: dataSource)
-        setupAdditionView()
-
-        if let defaultIndex = defaultIndex {
-            moveTabItem(index: defaultIndex, animated: animated)
-        }
-    }
-
-    func reset() {
-        currentIndex = 0
-        itemViews.forEach { $0.removeFromSuperview() }
-        additionView.removeFromSuperview()
-        containerView.removeFromSuperview()
-        itemViews = []
-    }
-
-    func update(_ index: Int) {
-
-        if currentIndex == index { return }
-
-        currentIndex = index
-        updateSelectedItem(by: currentIndex)
+        setupContainerView()
+        setupTabItemViews()
+        setupUnderlineView()
     }
 
     fileprivate func setupScrollView() {
@@ -157,7 +120,7 @@ open class TabView: UIScrollView {
         translatesAutoresizingMaskIntoConstraints = false
     }
 
-    fileprivate func setupContainerView(dataSource: TabViewDataSource) {
+    fileprivate func setupContainerView() {
 
         containerView.alignment = .leading
 
@@ -173,8 +136,8 @@ open class TabView: UIScrollView {
 
         switch options.addition {
         case .underline:
-            containerHeight = frame.height - options.additionView.underline.height - options.additionView.padding.bottom
-        case .none, .circle:
+            containerHeight = frame.height - options.underlineView.height
+        case .none:
             containerHeight = frame.height
         }
 
@@ -202,7 +165,7 @@ open class TabView: UIScrollView {
         addSubview(containerView)
     }
 
-    fileprivate func setupTabItemViews(dataSource: TabViewDataSource) {
+    fileprivate func setupTabItemViews() {
 
         itemViews = []
 
@@ -213,7 +176,7 @@ open class TabView: UIScrollView {
         for index in 0..<itemCount {
             let tabItemView = TabItemView(frame: CGRect(x: xPosition, y: 0, width: options.itemView.width, height: containerView.frame.size.height))
             tabItemView.translatesAutoresizingMaskIntoConstraints = false
-            tabItemView.clipsToBounds = options.clipsToBounds
+            tabItemView.backgroundColor = options.backgroundColor
             if let title = dataSource.tabView(self, titleForItemAt: index) {
                 tabItemView.titleLabel.text = title
                 tabItemView.titleLabel.font = options.itemView.font
@@ -265,22 +228,13 @@ open class TabView: UIScrollView {
         }
 
         layout(containerView: containerView, containerWidth: xPosition)
-        addTabItemGestures()
-        animateAdditionView(index: currentIndex, animated: false)
+        animateUnderlineView(index: currentIndex)
     }
 
     private func layout(containerView: UIView, containerWidth: CGFloat) {
 
         containerView.frame.size.width = containerWidth
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let heightConstraint: NSLayoutConstraint
-        switch options.addition {
-        case .underline:
-            heightConstraint = containerView.heightAnchor.constraint(equalToConstant: options.height - options.additionView.underline.height - options.additionView.padding.bottom)
-        case .circle, .none:
-            heightConstraint = containerView.heightAnchor.constraint(equalToConstant: options.height)
-        }
 
         switch options.style {
         case .flexible:
@@ -291,7 +245,7 @@ open class TabView: UIScrollView {
                     containerView.topAnchor.constraint(equalTo: self.topAnchor),
                     leftMarginConstraint,
                     containerView.widthAnchor.constraint(equalToConstant: containerWidth),
-                    heightConstraint
+                    containerView.heightAnchor.constraint(equalToConstant: options.height - options.underlineView.height)
                     ])
                 contentSize.width = containerWidth + options.margin * 2 + safeAreaInsets.left - safeAreaInsets.right
             } else {
@@ -300,7 +254,7 @@ open class TabView: UIScrollView {
                     containerView.topAnchor.constraint(equalTo: self.topAnchor),
                     leftMarginConstraint,
                     containerView.widthAnchor.constraint(equalToConstant: containerWidth),
-                    heightConstraint
+                    containerView.heightAnchor.constraint(equalToConstant: options.height - options.underlineView.height)
                     ])
                 contentSize.width = containerWidth + options.margin * 2
             }
@@ -312,7 +266,7 @@ open class TabView: UIScrollView {
                     containerView.topAnchor.constraint(equalTo: self.topAnchor),
                     leftMarginConstraint,
                     widthConstraint,
-                    heightConstraint
+                    containerView.heightAnchor.constraint(equalToConstant: options.height - options.underlineView.height)
                     ])
             } else {
                 leftMarginConstraint = containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: options.margin)
@@ -321,7 +275,7 @@ open class TabView: UIScrollView {
                     containerView.topAnchor.constraint(equalTo: self.topAnchor),
                     leftMarginConstraint,
                     widthConstraint,
-                    heightConstraint
+                    containerView.heightAnchor.constraint(equalToConstant: options.height - options.underlineView.height)
                     ])
             }
 
@@ -336,7 +290,7 @@ open class TabView: UIScrollView {
     }
 }
 
-// MARK: - AdditionView
+// MARK: - UnderlineView
 
 extension TabView {
 
@@ -345,106 +299,81 @@ extension TabView {
         case reverse
     }
 
-    fileprivate func setupAdditionView() {
+    fileprivate func setupUnderlineView() {
         if itemViews.isEmpty { return }
 
         switch options.addition {
         case .underline:
             let itemView = itemViews[currentIndex]
-            additionView = UIView(frame: CGRect(x: itemView.frame.origin.x + options.additionView.padding.left, y: itemView.frame.height - options.additionView.padding.vertical, width: itemView.frame.width - options.additionView.padding.horizontal, height: options.additionView.underline.height))
-            additionView.backgroundColor = options.additionView.backgroundColor
-            containerView.addSubview(additionView)
-        case .circle:
-            let itemView = itemViews[currentIndex]
-            let height = itemView.bounds.height - options.additionView.padding.vertical
-            additionView = UIView(frame: CGRect(x: itemView.frame.origin.x + options.additionView.padding.left, y: 0, width: itemView.frame.width - options.additionView.padding.horizontal, height: height))
-            additionView.layer.position.y = itemView.layer.position.y
-            additionView.layer.cornerRadius = options.additionView.circle.cornerRadius ?? additionView.frame.height / 2
-            additionView.backgroundColor = options.additionView.backgroundColor
-            containerView.addSubview(additionView)
-            containerView.sendSubviewToBack(additionView)
+            underlineView = UIView(frame: CGRect(x: itemView.frame.origin.x + options.underlineView.margin, y: itemView.frame.height, width: itemView.frame.width - options.underlineView.margin * 2, height: options.underlineView.height))
+            underlineView.backgroundColor = options.underlineView.backgroundColor
+            containerView.addSubview(underlineView)
         case .none:
-            additionView.backgroundColor = .clear
+            underlineView.backgroundColor = .clear
         }
 
         jump(to: currentIndex)
     }
 
-    private func updateAdditionViewPosition(index: Int) {
-        guard let target = currentItem else { return }
-
-        additionView.frame.origin.x = target.frame.origin.x + options.additionView.padding.left
-
-        if options.needsAdjustItemViewWidth {
-            let cellWidth = itemViews[index].frame.width
-            additionView.frame.size.width = cellWidth - options.additionView.padding.horizontal
-        }
-
-        focus(on: target)
-    }
-
-    fileprivate func resetAdditionViewPosition(index: Int) {
-        guard options.style == .segmented,
-            let dataSource = dataSource,
-            dataSource.numberOfItems(in: self) > 0 else { return }
+    fileprivate func resetUnderlineViewPosition(index: Int) {
+        guard options.style == .segmented else { return }
         let adjustCellWidth: CGFloat
         if #available(iOS 11.0, *), options.isSafeAreaEnabled && safeAreaInsets != .zero {
-            adjustCellWidth = (frame.width - options.margin * 2 - safeAreaInsets.left - safeAreaInsets.right) / CGFloat(dataSource.numberOfItems(in: self)) - options.additionView.padding.horizontal
+            adjustCellWidth = (frame.width - options.margin * 2 - safeAreaInsets.left - safeAreaInsets.right) / CGFloat(dataSource.numberOfItems(in: self)) - options.underlineView.margin * 2
         } else {
-            adjustCellWidth = (frame.width - options.margin * 2) / CGFloat(dataSource.numberOfItems(in: self)) - options.additionView.padding.horizontal
+            adjustCellWidth = (frame.width - options.margin * 2) / CGFloat(dataSource.numberOfItems(in: self)) - options.underlineView.margin * 2
         }
 
-        additionView.frame.origin.x = adjustCellWidth * CGFloat(index) - options.additionView.padding.left
-        additionView.frame.size.width = adjustCellWidth
+        underlineView.frame.origin.x = adjustCellWidth * CGFloat(index) - options.underlineView.margin
+        underlineView.frame.size.width = adjustCellWidth
     }
 
-    fileprivate func animateAdditionView(index: Int, animated: Bool, completion: ((Bool) -> Swift.Void)? = nil) {
+    public func animateUnderlineView(index: Int, completion: ((Bool) -> Swift.Void)? = nil) {
 
         update(index)
 
-        if animated {
-            UIView.animate(withDuration: options.additionView.animationDuration, animations: {
-                self.updateAdditionViewPosition(index: index)
-            }, completion: completion)
-        } else {
-            updateAdditionViewPosition(index: index)
-        }
+        UIView.animate(withDuration: 0.3, animations: { _ in
+            let target = self.currentItem
+
+            self.underlineView.frame.origin.x = target.frame.origin.x + self.options.underlineView.margin
+
+            if self.options.needsAdjustItemViewWidth {
+                let cellWidth = self.itemViews[index].frame.width
+                self.underlineView.frame.size.width = cellWidth - self.options.underlineView.margin * 2
+            }
+
+            self.focus(on: target)
+        }, completion: completion)
     }
 
-    func moveAdditionView(index: Int, ratio: CGFloat, direction: Direction) {
+    public func moveUnderlineView(index: Int, ratio: CGFloat, direction: Direction) {
 
         update(index)
-
-        guard let currentItem = currentItem else { return }
 
         switch direction {
         case .forward:
-            additionView.frame.origin.x = currentItem.frame.origin.x + (nextItem.frame.origin.x - currentItem.frame.origin.x) * ratio + options.additionView.padding.left
-            additionView.frame.size.width = currentItem.frame.size.width + (nextItem.frame.size.width - currentItem.frame.size.width) * ratio - options.additionView.padding.horizontal
+            underlineView.frame.origin.x = currentItem.frame.origin.x + (nextItem.frame.origin.x - currentItem.frame.origin.x) * ratio + options.underlineView.margin
+            underlineView.frame.size.width = currentItem.frame.size.width + (nextItem.frame.size.width - currentItem.frame.size.width) * ratio - options.underlineView.margin * 2
             if options.needsConvertTextColorRatio {
                 nextItem.titleLabel.textColor = options.itemView.textColor.convert(to: options.itemView.selectedTextColor, multiplier: ratio)
                 currentItem.titleLabel.textColor = options.itemView.selectedTextColor.convert(to: options.itemView.textColor, multiplier: ratio)
             }
         case .reverse:
-            additionView.frame.origin.x = previousItem.frame.origin.x + (currentItem.frame.origin.x - previousItem.frame.origin.x) * ratio + options.additionView.padding.left
-            additionView.frame.size.width = previousItem.frame.size.width + (currentItem.frame.size.width - previousItem.frame.size.width) * ratio - options.additionView.padding.horizontal
+            underlineView.frame.origin.x = previousItem.frame.origin.x + (currentItem.frame.origin.x - previousItem.frame.origin.x) * ratio + options.underlineView.margin
+            underlineView.frame.size.width = previousItem.frame.size.width + (currentItem.frame.size.width - previousItem.frame.size.width) * ratio - options.underlineView.margin * 2
             if options.needsConvertTextColorRatio {
                 previousItem.titleLabel.textColor = options.itemView.selectedTextColor.convert(to: options.itemView.textColor, multiplier: ratio)
                 currentItem.titleLabel.textColor = options.itemView.textColor.convert(to: options.itemView.selectedTextColor, multiplier: ratio)
             }
         }
 
-        if options.itemView.selectedTextColor.convert(to: options.itemView.textColor, multiplier: ratio) == nil {
-            updateSelectedItem(by: currentIndex)
-        }
-
-        focus(on: additionView, animated: false)
+        focus(on: underlineView, animated: false)
     }
 }
 
 extension TabView {
-    var currentItem: TabItemView? {
-        return currentIndex < itemViews.count ? itemViews[currentIndex] : nil
+    var currentItem: TabItemView {
+        return itemViews[currentIndex]
     }
 
     var nextItem: TabItemView {
@@ -464,52 +393,11 @@ extension TabView {
     func jump(to index: Int) {
         update(index)
 
-        guard let currentItem = currentItem else { return }
-
         if options.addition == .underline {
-            additionView.frame.origin.x = currentItem.frame.origin.x + options.additionView.padding.left
-            additionView.frame.size.width = currentItem.frame.size.width - options.additionView.padding.horizontal
+            underlineView.frame.origin.x = currentItem.frame.origin.x
+            underlineView.frame.size.width = currentItem.frame.size.width
         }
 
         focus(on: currentItem, animated: false)
     }
 }
-
-// MARK: - GestureRecognizer
-
-extension TabView {
-
-    fileprivate var tapGestureRecognizer: UITapGestureRecognizer {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapItemView(_:)))
-        gestureRecognizer.numberOfTapsRequired = 1
-        gestureRecognizer.cancelsTouchesInView = false
-        return gestureRecognizer
-    }
-
-    fileprivate func addTabItemGestures() {
-        itemViews.forEach {
-            $0.addGestureRecognizer(tapGestureRecognizer)
-        }
-    }
-
-    @objc func tapItemView(_ recognizer: UITapGestureRecognizer) {
-        guard let itemView = recognizer.view as? TabItemView,
-            let index: Int = itemViews.index(of: itemView),
-            currentIndex != index else { return }
-        tabViewDelegate?.tabView(self, willSelectTabAt: index)
-        moveTabItem(index: index, animated: true)
-        update(index)
-        tabViewDelegate?.tabView(self, didSelectTabAt: index)
-    }
-
-    private func moveTabItem(index: Int, animated: Bool) {
-
-        switch options.addition {
-        case .underline, .circle:
-            animateAdditionView(index: index, animated: animated, completion: nil)
-        case .none:
-            update(index)
-        }
-    }
-}
-

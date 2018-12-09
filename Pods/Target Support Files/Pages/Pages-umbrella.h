@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "SwipeMenuViewController.h"
 
-FOUNDATION_EXPORT double SwipeMenuViewControllerVersionNumber;
-FOUNDATION_EXPORT const unsigned char SwipeMenuViewControllerVersionString[];
+FOUNDATION_EXPORT double PagesVersionNumber;
+FOUNDATION_EXPORT const unsigned char PagesVersionString[];
 

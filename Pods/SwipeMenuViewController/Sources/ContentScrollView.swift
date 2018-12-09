@@ -85,8 +85,13 @@ open class ContentScrollView: UIScrollView {
 
     private func setupPages() {
         pageViews = []
+        loadViewIfNeeded()
+    }
 
-        guard let dataSource = dataSource, dataSource.numberOfPages(in: self) > 0 else { return }
+    private func loadViewIfNeeded() {
+
+        guard let dataSource = dataSource else { return }
+        if dataSource.numberOfPages(in: self) < 0 { return }
 
         self.contentSize = CGSize(width: frame.width * CGFloat(dataSource.numberOfPages(in: self)), height: frame.height)
 
@@ -102,7 +107,7 @@ open class ContentScrollView: UIScrollView {
                 pageView.widthAnchor.constraint(equalTo: self.widthAnchor),
                 pageView.heightAnchor.constraint(equalTo: self.heightAnchor),
                 pageView.leadingAnchor.constraint(equalTo: leadingAnchor)
-            ])
+                ])
         }
 
         guard currentIndex < dataSource.numberOfPages(in: self) else { return }
@@ -117,7 +122,7 @@ open class ContentScrollView: UIScrollView {
                 pageView.widthAnchor.constraint(equalTo: self.widthAnchor),
                 pageView.heightAnchor.constraint(equalTo: self.heightAnchor),
                 pageView.leadingAnchor.constraint(equalTo: pageViews[i - 1].trailingAnchor)
-            ])
+                ])
         }
     }
 }

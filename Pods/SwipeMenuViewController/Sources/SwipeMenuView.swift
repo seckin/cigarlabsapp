@@ -13,115 +13,50 @@ public struct SwipeMenuViewOptions {
 
         public enum Addition {
             case underline
-            case circle
             case none
         }
 
         public struct ItemView {
-            /// ItemView width. Defaults to `100.0`.
             public var width: CGFloat = 100.0
-
-            /// ItemView side margin. Defaults to `5.0`.
             public var margin: CGFloat = 5.0
-
-            /// ItemView font. Defaults to `14 pt as bold SystemFont`.
             public var font: UIFont = UIFont.boldSystemFont(ofSize: 14)
-
-            /// ItemView clipsToBounds. Defaults to `true`.
-            public var clipsToBounds: Bool = true
-
-            /// ItemView textColor. Defaults to `.lightGray`.
             public var textColor: UIColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 1.0)
-
-            /// ItemView selected textColor. Defaults to `.black`.
             public var selectedTextColor: UIColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         }
 
-        public struct AdditionView {
-            
-            public struct Underline {
-                /// Underline height if addition style select `.underline`. Defaults to `2.0`.
-                public var height: CGFloat = 2.0
-            }
-            
-            public struct Circle {
-                /// Circle cornerRadius if addition style select `.circle`. Defaults to `nil`.
-                /// `AdditionView.height / 2` in the case of nil.
-                public var cornerRadius: CGFloat? = nil
-            }
-
-            /// AdditionView side margin. Defaults to `0.0`.
-            @available(*, deprecated, message: "Use `SwipeMenuViewOptions.TabView.AdditionView.padding` instead.")
+        public struct UndelineView {
+            public var height: CGFloat = 2.0
             public var margin: CGFloat = 0.0
-
-            /// AdditionView paddings. Defaults to `.zero`.
-            public var padding: UIEdgeInsets = .zero
-            
-            /// AdditionView backgroundColor. Defaults to `.black`.
             public var backgroundColor: UIColor = .black
-            
-            /// AdditionView animating duration. Defaults to `0.3`.
-            public var animationDuration: Double = 0.3
-
-            /// Underline style options.
-            public var underline = Underline()
-            
-            /// Circle style options.
-            public var circle = Circle()
+            public var animationDuration: CGFloat = 0.3
         }
 
-        /// TabView height. Defaults to `44.0`.
+        // self
         public var height: CGFloat = 44.0
-
-        /// TabView side margin. Defaults to `0.0`.
         public var margin: CGFloat = 0.0
-
-        /// TabView background color. Defaults to `.clear`.
         public var backgroundColor: UIColor = .clear
-
-        /// TabView clipsToBounds. Defaults to `true`.
-        public var clipsToBounds: Bool = true
-
-        /// TabView style. Defaults to `.flexible`. Style type has [`.flexible` , `.segmented`].
         public var style: Style = .flexible
-
-        /// TabView addition. Defaults to `.underline`. Addition type has [`.underline`, `.circle`, `.none`].
         public var addition: Addition = .underline
-
-        /// TabView adjust width or not. Defaults to `true`.
         public var needsAdjustItemViewWidth: Bool = true
-
-        /// Convert the text color of ItemView to selected text color by scroll rate of ContentScrollView. Defaults to `true`.
         public var needsConvertTextColorRatio: Bool = true
-
-        /// TabView enable safeAreaLayout. Defaults to `true`.
         public var isSafeAreaEnabled: Bool = true
 
-        /// ItemView options
+        // item
         public var itemView = ItemView()
 
-        /// AdditionView options
-        public var additionView = AdditionView()
-
-        public init() { }
+        // underline
+        public var underlineView = UndelineView()
     }
 
     public struct ContentScrollView {
 
-        /// ContentScrollView backgroundColor. Defaults to `.clear`.
+        // self
         public var backgroundColor: UIColor = .clear
-
-        /// ContentScrollView clipsToBounds. Defaults to `true`.
-        public var clipsToBounds: Bool = true
-
-        /// ContentScrollView scroll enabled. Defaults to `true`.
         public var isScrollEnabled: Bool = true
-
-        /// ContentScrollView enable safeAreaLayout. Defaults to `true`.
         public var isSafeAreaEnabled: Bool = true
     }
 
-    /// TabView and ContentScrollView Enable safeAreaLayout. Defaults to `true`.
+    // self
     public var isSafeAreaEnabled: Bool = true {
         didSet {
             tabView.isSafeAreaEnabled = isSafeAreaEnabled
@@ -129,10 +64,10 @@ public struct SwipeMenuViewOptions {
         }
     }
 
-    /// TabView options
+    // TabView
     public var tabView = TabView()
 
-    /// ContentScrollView options
+    // ContentScrollView
     public var contentScrollView = ContentScrollView()
 
     public init() { }
@@ -142,16 +77,9 @@ public struct SwipeMenuViewOptions {
 
 public protocol SwipeMenuViewDelegate: class {
 
-    /// Called before setup self.
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewWillSetupAt currentIndex: Int)
-
-    /// Called after setup self.
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewDidSetupAt currentIndex: Int)
-
-    /// Called before swiping the page.
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, willChangeIndexFrom fromIndex: Int, to toIndex: Int)
-
-    /// Called after swiping the page.
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, didChangeIndexFrom fromIndex: Int, to toIndex: Int)
 }
 
@@ -166,13 +94,9 @@ extension SwipeMenuViewDelegate {
 
 public protocol SwipeMenuViewDataSource: class {
 
-    /// Return the number of pages in `SwipeMenuView`.
     func numberOfPages(in swipeMenuView: SwipeMenuView) -> Int
 
-    /// Return strings to be displayed at the tab in `SwipeMenuView`.
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, titleForPageAt index: Int) -> String
-
-    /// Return a ViewController to be displayed at the page in `SwipeMenuView`.
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController
 }
 
@@ -180,17 +104,14 @@ public protocol SwipeMenuViewDataSource: class {
 
 open class SwipeMenuView: UIView {
 
-    /// An object conforms `SwipeMenuViewDelegate`. Provide views to populate the `SwipeMenuView`.
     open weak var delegate: SwipeMenuViewDelegate?
 
-    /// An object conforms `SwipeMenuViewDataSource`. Provide views and respond to `SwipeMenuView` events.
     open weak var dataSource: SwipeMenuViewDataSource?
 
     open fileprivate(set) var tabView: TabView? {
         didSet {
             guard let tabView = tabView else { return }
             tabView.dataSource = self
-            tabView.tabViewDelegate = self
             addSubview(tabView)
             layout(tabView: tabView)
         }
@@ -217,9 +138,7 @@ open class SwipeMenuView: UIView {
     fileprivate var isJumping: Bool = false
     fileprivate var isPortrait: Bool = true
 
-    /// The index of the front page in `SwipeMenuView` (read only).
-    open private(set) var currentIndex: Int = 0
-    private var jumpingToIndex: Int?
+    private(set) var currentIndex: Int = 0
 
     public init(frame: CGRect, options: SwipeMenuViewOptions? = nil) {
 
@@ -252,7 +171,6 @@ open class SwipeMenuView: UIView {
         setup()
     }
 
-    /// Reloads all `SwipeMenuView` item views with the dataSource and refreshes the display.
     public func reloadData(options: SwipeMenuViewOptions? = nil, default defaultIndex: Int? = nil, isOrientationChange: Bool = false) {
 
         if let options = options {
@@ -271,22 +189,16 @@ open class SwipeMenuView: UIView {
         isLayoutingSubviews = false
     }
 
-    /// Jump to the selected page.
     public func jump(to index: Int, animated: Bool) {
-        guard let tabView = tabView, let contentScrollView = contentScrollView else { return }
-        if currentIndex != index {
-            delegate?.swipeMenuView(self, willChangeIndexFrom: currentIndex, to: index)
-        }
-        jumpingToIndex = index
 
-        tabView.jump(to: index)
-        contentScrollView.jump(to: index, animated: animated)
+        if let tabView = tabView, let contentScrollView = contentScrollView {
+            tabView.jump(to: index)
+            contentScrollView.jump(to: index, animated: animated)
+        }
     }
 
-    /// Notify changing orientaion to `SwipeMenuView` before it.
     public func willChangeOrientation() {
         isLayoutingSubviews = true
-        setNeedsLayout()
     }
 
     fileprivate func update(from fromIndex: Int, to toIndex: Int) {
@@ -297,12 +209,9 @@ open class SwipeMenuView: UIView {
 
         tabView?.update(toIndex)
         contentScrollView?.update(toIndex)
-        if !isJumping {
-            // delay setting currentIndex until end scroll when jumping
-            currentIndex = toIndex
-        }
+        currentIndex = toIndex
 
-        if !isJumping && !isLayoutingSubviews {
+        if !isLayoutingSubviews {
             delegate?.swipeMenuView(self, didChangeIndexFrom: fromIndex, to: toIndex)
         }
     }
@@ -315,10 +224,9 @@ open class SwipeMenuView: UIView {
         backgroundColor = .clear
 
         tabView = TabView(frame: CGRect(x: 0, y: 0, width: frame.width, height: options.tabView.height), options: options.tabView)
-        tabView?.clipsToBounds = options.tabView.clipsToBounds
+        addTabItemGestures()
 
         contentScrollView = ContentScrollView(frame: CGRect(x: 0, y: options.tabView.height, width: frame.width, height: frame.height - options.tabView.height), default: defaultIndex, options: options.contentScrollView)
-        contentScrollView?.clipsToBounds = options.contentScrollView.clipsToBounds
 
         tabView?.update(defaultIndex)
         contentScrollView?.update(defaultIndex)
@@ -366,22 +274,9 @@ open class SwipeMenuView: UIView {
     }
 }
 
-// MARK: - TabViewDelegate, TabViewDataSource
+// MARK: - TabViewDataSource
 
-extension SwipeMenuView: TabViewDelegate, TabViewDataSource {
-
-    public func tabView(_ tabView: TabView, didSelectTabAt index: Int) {
-
-        guard let contentScrollView = contentScrollView,
-            currentIndex != index else { return }
-
-        isJumping = true
-        jumpingToIndex = index
-
-        contentScrollView.jump(to: index, animated: true)
-
-        update(from: currentIndex, to: index)
-    }
+extension SwipeMenuView: TabViewDataSource {
 
     public func numberOfItems(in menuView: TabView) -> Int {
         return dataSource?.numberOfPages(in: self) ?? 0
@@ -389,6 +284,47 @@ extension SwipeMenuView: TabViewDelegate, TabViewDataSource {
 
     public func tabView(_ tabView: TabView, titleForItemAt index: Int) -> String? {
         return dataSource?.swipeMenuView(self, titleForPageAt: index)
+    }
+}
+
+// MARK: - GestureRecognizer
+
+extension SwipeMenuView {
+
+    fileprivate var tapGestureRecognizer: UITapGestureRecognizer {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapItemView(_:)))
+        gestureRecognizer.numberOfTapsRequired = 1
+        gestureRecognizer.cancelsTouchesInView = false
+        return gestureRecognizer
+    }
+
+    fileprivate func addTabItemGestures() {
+        tabView?.itemViews.forEach {
+            $0.addGestureRecognizer(tapGestureRecognizer)
+        }
+    }
+
+    func tapItemView(_ recognizer: UITapGestureRecognizer) {
+
+        guard let itemView = recognizer.view as? TabItemView, let tabView = tabView, let index: Int = tabView.itemViews.index(of: itemView), let contentScrollView = contentScrollView else { return }
+        if currentIndex == index { return }
+
+        isJumping = true
+
+        contentScrollView.jump(to: index, animated: true)
+        moveTabItem(tabView: tabView, index: index)
+
+        update(from: currentIndex, to: index)
+    }
+
+    private func moveTabItem(tabView: TabView, index: Int) {
+
+        switch options.tabView.addition {
+        case .underline:
+            tabView.animateUnderlineView(index: index, completion: nil)
+        case .none:
+            tabView.update(index)
+        }
     }
 }
 
@@ -413,11 +349,6 @@ extension SwipeMenuView: UIScrollViewDelegate {
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
 
         if isJumping || isLayoutingSubviews {
-            if let toIndex = jumpingToIndex {
-                delegate?.swipeMenuView(self, didChangeIndexFrom: currentIndex, to: toIndex)
-                currentIndex = toIndex
-                jumpingToIndex = nil
-            }
             isJumping = false
             isLayoutingSubviews = false
             return
@@ -428,11 +359,11 @@ extension SwipeMenuView: UIScrollViewDelegate {
 
     /// update addition in tab view
     private func updateTabViewAddition(by scrollView: UIScrollView) {
-        moveAdditionView(scrollView: scrollView)
+        moveUnderlineView(scrollView: scrollView)
     }
 
     /// update underbar position
-    private func moveAdditionView(scrollView: UIScrollView) {
+    private func moveUnderlineView(scrollView: UIScrollView) {
 
         if let tabView = tabView, let contentScrollView = contentScrollView {
 
@@ -440,9 +371,9 @@ extension SwipeMenuView: UIScrollViewDelegate {
 
             switch scrollView.contentOffset.x {
             case let offset where offset >= frame.width * CGFloat(currentIndex):
-                tabView.moveAdditionView(index: currentIndex, ratio: ratio, direction: .forward)
+                tabView.moveUnderlineView(index: currentIndex, ratio: ratio, direction: .forward)
             case let offset where offset < frame.width * CGFloat(currentIndex):
-                tabView.moveAdditionView(index: currentIndex, ratio: ratio, direction: .reverse)
+                tabView.moveUnderlineView(index: currentIndex, ratio: ratio, direction: .reverse)
             default:
                 break
             }
