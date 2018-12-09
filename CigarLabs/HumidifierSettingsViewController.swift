@@ -141,6 +141,7 @@ class HumidifierSettingsViewController: QuickTableViewController {
                     self!.post!["sentryModeSetting"] = row.switchValue
                     self!.post!.saveInBackground()
                     print("sentryMode saved as ", row.switchValue)
+                    self!.performSegue(withIdentifier: "sentryMode", sender: nil)
                 }
             }
         }
@@ -148,8 +149,14 @@ class HumidifierSettingsViewController: QuickTableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let post = self.post
-        let seasoningModeViewController = segue.destination as! SeasoningModeViewController
-        seasoningModeViewController.post = post
+        if segue.identifier == "seasoningMode" {
+            let seasoningModeViewController = segue.destination as! SeasoningModeViewController
+            seasoningModeViewController.post = post
+        }
+        if segue.identifier == "sentryMode" {
+            let sentryModeViewController = segue.destination as! SentryModeViewController
+            sentryModeViewController.post = post
+        }
     }
 
 }

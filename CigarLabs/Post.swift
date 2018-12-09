@@ -31,7 +31,7 @@ class Post: NSObject {
         // Add relevant fields to the object
         post["author"] = PFUser.current() // Pointer column type that points to PFUser
         post["caption"] = caption
-        post["temperature"] = 70
+        post["humidity"] = 70
         
         // Save object (following function will save the object in Parse asynchronously)
         post.saveInBackground { (success: Bool, error: Error?) in

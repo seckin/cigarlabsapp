@@ -52,7 +52,7 @@ class DetailsViewController: UIViewController {
 
 
 
-            currentHumidity = post["temperature"] as? Int
+            currentHumidity = post["humidity"] as? Int
             setButtonCount = currentHumidity
 //            let size:CGFloat = 55.0
 
@@ -137,7 +137,7 @@ class DetailsViewController: UIViewController {
 
     @IBAction func setButtonTapped(_ sender: Any) {
         if let post = post {
-            post["temperature"] = setButtonCount
+            post["humidity"] = setButtonCount
     //        ProgressHUD.showSuccess("Update successful")
             post.saveInBackground()
 
