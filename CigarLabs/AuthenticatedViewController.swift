@@ -7,6 +7,7 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableViewPosts: UITableView!
     var refreshControl: UIRefreshControl!
     var feed: [PFObject] = []
+    @IBOutlet weak var noDevicesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,7 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         
         pullRefresh()
     }
-    
-    
+
     @IBAction func logOutPressed(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
         

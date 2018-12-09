@@ -32,7 +32,6 @@ class SeasoningModeViewController: UIViewController {
             shapeLayer.lineWidth = 3.0
             view.layer.addSublayer(shapeLayer)
 
-
             currentHumidity = 80
             //post["temperature"] as? Int
             setButtonCount = currentHumidity
@@ -59,14 +58,6 @@ class SeasoningModeViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-    }
-
-//    @IBAction func CigarLabsBackButtonTapped(_ sender: Any) {
-//        self.performSegue(withIdentifier: "DetailView", sender: nil)
-//    }
-
-    @IBAction func bigCircleTapped(_ sender: Any) {
-        // TODO: show the settings page
     }
 
     override func didReceiveMemoryWarning() {
