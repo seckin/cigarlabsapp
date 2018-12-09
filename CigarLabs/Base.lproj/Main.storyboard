@@ -201,41 +201,7 @@
                     <view key="view" contentMode="scaleToFill" id="aBB-Kt-YMz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyG-RH-jlt">
-                                <rect key="frame" x="8" y="157.5" width="359" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="young CS major" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEm-Ot-KIt">
-                                <rect key="frame" x="8" y="179" width="359" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfy-SD-H2s">
-                                <rect key="frame" x="111.5" y="95" width="42" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                <color key="textColor" red="0.63995082489999999" green="0.63995082489999999" blue="0.63995082489999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAn-Sq-7kG">
-                                <rect key="frame" x="111" y="119" width="70" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Edit Profile"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="mEm-Ot-KIt" firstAttribute="leading" secondItem="aBB-Kt-YMz" secondAttribute="leading" constant="8" id="1q6-sv-l4H"/>
-                            <constraint firstItem="eyG-RH-jlt" firstAttribute="leading" secondItem="aBB-Kt-YMz" secondAttribute="leading" constant="8" id="OxN-DZ-PnC"/>
-                            <constraint firstAttribute="trailing" secondItem="eyG-RH-jlt" secondAttribute="trailing" constant="8" id="PnQ-9D-BGN"/>
-                            <constraint firstAttribute="trailing" secondItem="mEm-Ot-KIt" secondAttribute="trailing" constant="8" id="Vki-u3-yJH"/>
-                            <constraint firstItem="mEm-Ot-KIt" firstAttribute="top" secondItem="eyG-RH-jlt" secondAttribute="bottom" constant="3.5" id="mxe-xO-fu4"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xVh-QR-Wdx"/>
                     </view>
                     <navigationItem key="navigationItem" id="cxS-yr-uUs"/>

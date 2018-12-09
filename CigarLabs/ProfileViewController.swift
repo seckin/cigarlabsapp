@@ -1,119 +1,120 @@
-//
-//  ProfileViewController.swift
-//  CigarLabs
-//
-//  Created by NICK on 2/9/18.
-//  Copyright © 2018 NICK. All rights reserved.
-//
 
-import UIKit
+import Foundation
+
+import QuickTableViewController
 import Parse
-import ParseUI
 
-class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    @IBOutlet weak var userImageView: PFImageView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var bioLabel: UILabel!
-    @IBOutlet weak var postNumberLabel: UILabel!
-    var refreshControl: UIRefreshControl!
-    var posts: [PFObject] = []
-    
+class ProfileViewController: QuickTableViewController {
+
+    var post: PFObject?
+    @IBOutlet weak var seasoningModeButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
-        if refreshControl != nil {
-            collectionView.insertSubview(refreshControl, at: 0)
+
+        tableContents = [
+            Section(title: "Info", rows: [
+                NavigationRow(title: "Full Name", subtitle: .rightAligned("Seckin Can Sahin"), icon: .named("time"), action: { _ in }),
+                NavigationRow(title: "Email", subtitle: .rightAligned("seckincansahin@gmail.com"), icon: .named("time"), action: { _ in }),
+                ]),
+
+            Section(title: "Settings", rows: [
+                SwitchRow(title: "Send Email Alerts", switchValue: true, action: { _ in }),
+                SwitchRow(title: "Enable Push Notifications", switchValue: true, action: { _ in }),
+                ]),
+
+            Section(title: "Change Password", rows: [
+                TapActionRow(title: "Change Password", action: { [weak self] in self?.showAlert($0) })
+                ]),
+        ]
+    }
+
+    // MARK: - Actions
+
+    private func showAlert(_ sender: Row) {
+        // ...
+    }
+
+    private func didToggleTempOption(post: PFObject, _ sender: Row) {
+        print("tf called", sender.title)
+        if sender.title == "Celcius" {
+            post["temperatureReading"] = "C"
+            post.saveInBackground()
+            print("setting to C")
         }
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
-        // Sets circle profile picture viewer
-        userImageView.layer.borderWidth = 1
-        userImageView.layer.masksToBounds = false
-        userImageView.layer.borderColor = UIColor.white.cgColor
-        userImageView.layer.cornerRadius = userImageView.frame.height/2
-        userImageView.clipsToBounds = true
-        
-        refresh()
-    }
-    
-    func refreshProfileInfo() {
-        if let user = PFUser.current(){
-            //userLabel.text = user.username
-            nameLabel.text = user["name"] as? String
-            bioLabel.text = user["bio"] as? String
-            self.title = user.username// sets navBar title
-            userImageView.file = user["image"] as? PFFile
-            userImageView.loadInBackground()
+        if sender.title == "Fahrenheit" {
+            post["temperatureReading"] = "F"
+            post.saveInBackground()
+            print("setting to F")
         }
     }
-    
-    @objc func refreshControlAction(_ refreshControl: UIRefreshControl) {
-        refresh()
-        refreshControl.endRefreshing()
-    }
-    
-    
-    func refresh() {
-        var posts: [PFObject] = []
-        let query = PFQuery(className: "Post")
-        query.order(byDescending: "createdAt")
-        query.whereKey("author", equalTo: PFUser.current()!)
-        query.includeKey("author")
-        // limit to current author
-        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                if var posts = posts {
-                    for post in posts {
-                        posts.append(post)
-                    }
-                    self.posts = posts
-                    self.collectionView.reloadData()
-                    self.postNumberLabel.text = String(posts.count)
-                    print("Feed reloaded")
+
+    private func didTogglePowerOption() -> (Row) -> Void {
+        return { [weak self] in
+            if let option = $0 as? OptionRowCompatible, option.isSelected {
+                //                print("here1", option.title)
+                if option.title == "Low" {
+                    self!.post!["powerSetting"] = "Low"
+                    self!.post!.saveInBackground()
+                    print("setting to Low")
+                }
+                if option.title == "Medium" {
+                    self!.post!["powerSetting"] = "Medium"
+                    self!.post!.saveInBackground()
+                    print("setting to Medium")
+                }
+                if option.title == "High" {
+                    self!.post!["powerSetting"] = "High"
+                    self!.post!.saveInBackground()
+                    print("setting to High")
                 }
             }
         }
-        refreshProfileInfo()
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts.count
-    }
-    
-    class UserCell: UICollectionViewCell {
-        
-        @IBOutlet weak var photoView: PFImageView!
-        
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCell", for: indexPath) as! UserCell
-        let post = posts[indexPath.item]
-        let image = post["media"] as! PFFile
-        cell.photoView.file = image
-        cell.photoView.loadInBackground()
-        return cell
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func didToggleSwitch() -> (Row) -> Void {
+        return { [weak self] in
+            if let row = $0 as? SwitchRowCompatible {
+                let state = "\(row.title) = \(row.switchValue)"
+                print(state)
+                if row.title == "Box Open Alerts" {
+                    self!.post!["boxOpenAlertSetting"] = row.switchValue
+                    self!.post!.saveInBackground()
+                    print("boxOpen saved as ", row.switchValue)
+                }
+                if row.title == "Water Level Alerts" {
+                    self!.post!["waterLevelAlertSetting"] = row.switchValue
+                    self!.post!.saveInBackground()
+                    print("waterLevel saved as ", row.switchValue)
+                }
+                if row.title == "Seasoning Mode" {
+                    self!.post!["seasoningModeSetting"] = row.switchValue
+                    self!.post!.saveInBackground()
+                    print("seasoningMode saved as ", row.switchValue)
+
+                    //                    self!.seasoningModeButton.sendActions(for: .touchUpInside)
+                    self!.performSegue(withIdentifier: "seasoningMode", sender: nil)
+                }
+                if row.title == "Sentry Mode" {
+                    self!.post!["sentryModeSetting"] = row.switchValue
+                    self!.post!.saveInBackground()
+                    print("sentryMode saved as ", row.switchValue)
+                    self!.performSegue(withIdentifier: "sentryMode", sender: nil)
+                }
+            }
+        }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let post = self.post
+        if segue.identifier == "seasoningMode" {
+            let seasoningModeViewController = segue.destination as! SeasoningModeViewController
+            seasoningModeViewController.post = post
+        }
+        if segue.identifier == "sentryMode" {
+            let sentryModeViewController = segue.destination as! SentryModeViewController
+            sentryModeViewController.post = post
+        }
     }
-    */
 
 }

@@ -21,6 +21,7 @@
 		01CC9C88202CDAF3003099ED /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CC9C87202CDAF3003099ED /* Post.swift */; };
 		056363A121BCBB86006904EF /* SeasoningModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056363A021BCBB85006904EF /* SeasoningModeViewController.swift */; };
 		056363A321BCD24E006904EF /* SentryModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056363A221BCD24D006904EF /* SentryModeViewController.swift */; };
+		056363A521BCDEF2006904EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056363A421BCDEF2006904EF /* ProfileViewController.swift */; };
 		05BFCB8C21B7595900A16EDB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BFCB8B21B7595900A16EDB /* Launch Screen.storyboard */; };
 		05BFCB9021BB470D00A16EDB /* HumidifierSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BFCB8F21BB470D00A16EDB /* HumidifierSettingsViewController.swift */; };
 		09442FB48FEE530BBD95C699 /* Pods_CigarLabsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B67CF3917590AC8EBAEC250 /* Pods_CigarLabsTests.framework */; };
@@ -69,6 +70,7 @@
 		01CC9C87202CDAF3003099ED /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		056363A021BCBB85006904EF /* SeasoningModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasoningModeViewController.swift; sourceTree = "<group>"; };
 		056363A221BCD24D006904EF /* SentryModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentryModeViewController.swift; sourceTree = "<group>"; };
+		056363A421BCDEF2006904EF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		05BFCB8B21B7595900A16EDB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		05BFCB8F21BB470D00A16EDB /* HumidifierSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidifierSettingsViewController.swift; sourceTree = "<group>"; };
 		1490B301F52F1492C649610B /* Pods-CigarLabsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CigarLabsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CigarLabsUITests/Pods-CigarLabsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				01CC9C4120278156003099ED /* AuthenticatedViewController.swift */,
 				01CC9C81202CAD28003099ED /* PostTableViewCell.swift */,
 				01CC9C85202CBA35003099ED /* PostViewController.swift */,
+				056363A421BCDEF2006904EF /* ProfileViewController.swift */,
 				01CC9C87202CDAF3003099ED /* Post.swift */,
 				0113F9A1202E0C52004D7709 /* DetailsViewController.swift */,
 				056363A021BCBB85006904EF /* SeasoningModeViewController.swift */,
@@ -435,6 +438,7 @@
 				0113F9A2202E0C52004D7709 /* DetailsViewController.swift in Sources */,
 				01CC9C4220278156003099ED /* AuthenticatedViewController.swift in Sources */,
 				05BFCB9021BB470D00A16EDB /* HumidifierSettingsViewController.swift in Sources */,
+				056363A521BCDEF2006904EF /* ProfileViewController.swift in Sources */,
 				015668B820227F8700385EF2 /* AppDelegate.swift in Sources */,
 				01CC9C88202CDAF3003099ED /* Post.swift in Sources */,
 				01CC9C83202CAD28003099ED /* PostTableViewCell.swift in Sources */,
