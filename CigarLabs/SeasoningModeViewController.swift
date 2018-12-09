@@ -54,6 +54,10 @@ class SeasoningModeViewController: UIViewController {
             setCountLabel.attributedText = myCountLabelAttrString
             setCountLabel.textColor = UIColor.darkGray
             setCountLabel.textAlignment = .center
+
+            let alert = UIAlertController(title: "Alert", message: "When activated humidity levels will be kept at 80%. Do not store any cigars within your humidor while seasoning mode is activated.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
