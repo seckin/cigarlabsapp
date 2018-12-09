@@ -14,6 +14,7 @@ PODS:
     - Starscream (~> 3.0.4)
   - QuickTableViewController (1.0.0)
   - Starscream (3.0.6)
+  - SwipeMenuViewController (3.0.0)
 
 DEPENDENCIES:
   - MBProgressHUD
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - Parse/UI
   - ParseLiveQuery
   - QuickTableViewController
+  - SwipeMenuViewController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - ParseLiveQuery
     - QuickTableViewController
     - Starscream
+    - SwipeMenuViewController
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -40,7 +43,8 @@ SPEC CHECKSUMS:
   ParseLiveQuery: 0ea078a12015d64070d0ae07da32fae3d3198c42
   QuickTableViewController: a49fb6dc5623b9dbe301a03ac5c563099e234fbc
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  SwipeMenuViewController: 572a6fcd7fa95c3d744c760d5e836896817c5735
 
-PODFILE CHECKSUM: 4642aa9740de1add3e803349fd37cae346f06daa
+PODFILE CHECKSUM: 75e075e2af12aec5d8bc8804fabc262df5be5643
 
 COCOAPODS: 1.5.3

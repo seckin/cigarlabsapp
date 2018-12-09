@@ -11,6 +11,7 @@ target 'CigarLabs' do
   pod 'ParseLiveQuery'
   pod 'MBProgressHUD'
   pod 'QuickTableViewController'
+  pod 'SwipeMenuViewController'
 
   target 'CigarLabsTests' do
     inherit! :search_paths

@@ -150,6 +150,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QuickTableViewController/QuickTableViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework"
@@ -159,6 +160,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QuickTableViewController/QuickTableViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
