@@ -7,6 +7,7 @@ import Parse
 class HumidifierSettingsViewController: QuickTableViewController {
 
     var post: PFObject?
+    @IBOutlet weak var seasoningModeButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,6 +133,9 @@ class HumidifierSettingsViewController: QuickTableViewController {
                     self!.post!["seasoningModeSetting"] = row.switchValue
                     self!.post!.saveInBackground()
                     print("seasoningMode saved as ", row.switchValue)
+
+//                    self!.seasoningModeButton.sendActions(for: .touchUpInside)
+                    self!.performSegue(withIdentifier: "seasoningMode", sender: nil)
                 }
                 if row.title == "Sentry Mode" {
                     self!.post!["sentryModeSetting"] = row.switchValue
@@ -141,4 +145,11 @@ class HumidifierSettingsViewController: QuickTableViewController {
             }
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let post = self.post
+        let seasoningModeViewController = segue.destination as! SeasoningModeViewController
+        seasoningModeViewController.post = post
+    }
+
 }

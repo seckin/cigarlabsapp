@@ -163,7 +163,6 @@ class DetailsViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let cell = sender as! UITableViewCell
         let post = self.post
         let humidifierSettingsViewController = segue.destination as! HumidifierSettingsViewController
         humidifierSettingsViewController.post = post
