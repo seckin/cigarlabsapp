@@ -12,9 +12,7 @@ class PostAddViewController: UIViewController, UIImagePickerControllerDelegate, 
     var captionPost = ""
 
     override func viewDidLoad() {
-        print("here123")
         super.viewDidLoad()
-        print("here124")
 
         let button = UIButton(frame: CGRect(x: 100, y: 300, width: 100, height: 50))
         button.backgroundColor = .green
@@ -23,7 +21,6 @@ class PostAddViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        print("here125")
     }
 
     @IBAction func onShare(_ sender: Any) {
