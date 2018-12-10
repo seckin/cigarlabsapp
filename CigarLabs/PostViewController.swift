@@ -38,50 +38,35 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     private func pagesControllerInCode() -> PagesController {
         var viewControllers: [UIViewController] = []
 
-        for i in 0..<5 {
-            if let imageURL = URL(string: "https://unsplash.it/375/667/?image=\(i+10)") {
-                let viewController = ViewController()
-//                viewController.imageView.image(url: imageURL)
+        let viewController1 = ViewController()
+        viewController1.imageView.image = UIImage(named:"step_1_power_respire")
+        viewControllers.append(viewController1)
 
-//                let url = URL(string: "http://i.imgur.com/w5rkSIj.jpg")
-                let data = try? Data(contentsOf: imageURL)
+        let viewController2 = ViewController()
+        viewController2.imageView.image = UIImage(named:"step_2_make_sure_wifi_is_on")
+        viewControllers.append(viewController2)
 
-                if let imageData = data {
-                    let image = UIImage(data: imageData)
-                    viewController.imageView.image = image
-                    viewControllers.append(viewController)
-                }
-            }
-        }
+        let viewController3 = ViewController()
+        viewController3.imageView.image = UIImage(named:"step_3_go_to_your_phones_wifi_settings")
+        viewControllers.append(viewController3)
+
+        let viewController4 = ViewController()
+        viewController4.imageView.image = UIImage(named:"step_4_wifi_networks")
+        viewControllers.append(viewController4)
+
+        let viewController5 = ViewController()
+        viewController5.imageView.image = UIImage(named:"step_5_wifi_password_for_selected_network")
+        viewControllers.append(viewController5)
+
+        let viewController6 = PostAddContainerViewController()
+        viewControllers.append(viewController6)
 
         let pages = PagesController(viewControllers)
 
-        pages.enableSwipe = true
-        pages.showBottomLine = true
+        pages.enableSwipe = false
+        pages.showBottomLine = false
 
         return pages
-    }
-    
-    @IBAction func onShare(_ sender: Any) {
-        //  MBProgressHUD.showAdded(to: self.view, animated: true)
-        print("onShare was called")
-        captionPost = captionField.text ?? ""
-        Post.postUserImage(withCaption: captionPost) { (status: Bool, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                print("Post successful")
-                //       MBProgressHUD.hide(for: self.view, animated: true)
-                //Goes back to feed after posting
-                self.tabBarController?.selectedIndex = 0
-                //Reset photo selected
-//                self.imagePost = UIImage(named: "imageName")
-                self.captionPost = ""
-            }
-        }
-        // segue to home vc
-
-        self.performSegue(withIdentifier: "AuthenticatedViewController", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {

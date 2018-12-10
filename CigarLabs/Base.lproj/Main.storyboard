@@ -198,28 +198,11 @@
                         <segue destination="oGX-Ce-SD1" kind="relationship" relationship="viewControllers" id="BqG-ES-OYm"/>
                         <segue destination="DIz-Wq-6ai" kind="relationship" relationship="viewControllers" id="hgr-tU-kMc"/>
                         <segue destination="D28-hT-IZK" kind="relationship" relationship="viewControllers" id="EyT-cB-OJe"/>
-                        <segue destination="t2A-92-uX6" kind="relationship" relationship="viewControllers" id="1qe-Sb-YVx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czG-cR-V7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="23" y="-304"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="IGT-Cy-0ip">
-            <objects>
-                <viewController id="t2A-92-uX6" customClass="NewDeviceInfoViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0DE-oc-1zd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Rk9-fE-l5t"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="yk3-Ky-Mgm"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QTy-gP-crK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="833" y="-427"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="UGy-7l-Kac">
@@ -366,56 +349,21 @@
         <!--Post View Controller-->
         <scene sceneID="dlh-wI-AZg">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVC-J6-gRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PostViewController" id="zz4-qi-w5w" customClass="PostViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cPp-vu-PMm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text=" " borderStyle="roundedRect" placeholder="Caption:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f09-G2-gco">
-                                <rect key="frame" x="161" y="105" width="198" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name of device:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xix-SG-40q">
-                                <rect key="frame" x="16" y="105" width="126" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qpW-zE-g18"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ne8-rd-t4Y">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="LYj-KF-Mdd">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" restorationIdentifier="ShareButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cgM-Ag-LL5">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Device"/>
-                                <connections>
-                                    <action selector="onShare:" destination="zz4-qi-w5w" eventType="touchUpInside" id="KLh-Hn-yBF"/>
-                                </connections>
-                            </button>
-                            <connections>
-                                <action selector="onShare:" destination="zz4-qi-w5w" id="8Ri-96-1Rm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Ne8-rd-t4Y"/>
                     <connections>
-                        <outlet property="captionField" destination="f09-G2-gco" id="bRq-9p-gRf"/>
                         <segue destination="pwf-kV-R9k" kind="show" identifier="AuthenticatedViewController" id="u2R-6o-HiB"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xVC-J6-gRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2448.8000000000002" y="-304.4977511244378"/>
+            <point key="canvasLocation" x="3247" y="-304"/>
         </scene>
         <!--Add New-->
         <scene sceneID="aQ6-uW-T7p">
@@ -563,6 +511,55 @@
             </objects>
             <point key="canvasLocation" x="1206" y="2231"/>
         </scene>
+        <!--PostAddViewController-->
+        <scene sceneID="0oy-80-9Kb">
+            <objects>
+                <viewController storyboardIdentifier="PostAddViewController" title="PostAddViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KCk-6H-lW4" customClass="PostAddViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hPn-WJ-HGB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text=" " borderStyle="roundedRect" placeholder="Caption:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-55-qJP">
+                                <rect key="frame" x="154" y="136" width="198" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name of device:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmG-tV-28I">
+                                <rect key="frame" x="9" y="136" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nle-0T-8d8">
+                                <rect key="frame" x="141" y="221" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onShare:" destination="KCk-6H-lW4" eventType="touchDown" id="NO8-Jg-eta"/>
+                                    <segue destination="pwf-kV-R9k" kind="custom" identifier="AuthenticatedViewController" id="PAH-YH-ds0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration" identifier="PostAddViewController"/>
+                        <viewLayoutGuide key="safeArea" id="OTt-dj-09I"/>
+                    </view>
+                    <connections>
+                        <outlet property="captionField" destination="E8c-55-qJP" id="2cH-86-jbR"/>
+                        <outlet property="submitButton" destination="Nle-0T-8d8" id="wa6-AR-RMR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CtX-Dz-9Mw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4070" y="-304"/>
+        </scene>
     </scenes>
     <resources>
         <image name="feed_tab" width="25" height="25"/>
@@ -572,6 +569,6 @@
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="u2R-6o-HiB"/>
+        <segue reference="PAH-YH-ds0"/>
     </inferredMetricsTieBreakers>
 </document>
