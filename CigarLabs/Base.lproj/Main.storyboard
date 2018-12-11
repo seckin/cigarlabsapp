@@ -39,14 +39,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0JE-8L-KGM">
                                 <rect key="frame" x="87" y="213" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRI-9m-VCR">
                                 <rect key="frame" x="87" y="175" width="97" height="30"/>
@@ -359,7 +359,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ne8-rd-t4Y"/>
                     <connections>
-                        <segue destination="pwf-kV-R9k" kind="show" identifier="AuthenticatedViewController" id="u2R-6o-HiB"/>
+                        <segue destination="pwf-kV-R9k" kind="show" identifier="AuthenticatedViewController2" id="u2R-6o-HiB"/>
                     </connections>
                 </viewController>
             </objects>
@@ -543,7 +543,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="onShare:" destination="KCk-6H-lW4" eventType="touchDown" id="NO8-Jg-eta"/>
-                                    <segue destination="pwf-kV-R9k" kind="custom" identifier="AuthenticatedViewController" id="PAH-YH-ds0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -558,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CtX-Dz-9Mw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4070" y="-304"/>
+            <point key="canvasLocation" x="4073" y="525"/>
         </scene>
     </scenes>
     <resources>
@@ -569,6 +568,6 @@
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PAH-YH-ds0"/>
+        <segue reference="u2R-6o-HiB"/>
     </inferredMetricsTieBreakers>
 </document>

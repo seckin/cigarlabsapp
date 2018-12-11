@@ -10,6 +10,7 @@ class PostAddViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var submitButton: UIButton!
     // initialize the following variables
     var captionPost = ""
+    var window: UIWindow?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +35,29 @@ class PostAddViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("Post successful")
                 //       MBProgressHUD.hide(for: self.view, animated: true)
                 //Goes back to feed after posting
-                self.tabBarController?.selectedIndex = 0
+//                print("self.tabBarController:",self.tabBarController)
+//                self.tabBarController?.selectedIndex = 0
                 //Reset photo selected
                 //                self.imagePost = UIImage(named: "imageName")
                 self.captionPost = ""
+
+                var sb = UIStoryboard(name: "Main", bundle: nil)
+                print("sb:", sb)
+                if let vc = sb.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
+                    //            vc.newsObj = newsObj
+                    self.present(vc, animated: true, completion: nil)
+                }
+
+//                let navigationController = LoginViewController()
+//                self.window = UIWindow(frame: UIScreen.main.bounds)
+//                self.window?.rootViewController = navigationController
+//                self.window?.makeKeyAndVisible()
             }
         }
         // segue to home vc
 
-        self.performSegue(withIdentifier: "AuthenticatedViewController", sender: nil)
+//        self.performSegue(withIdentifier: "AuthenticatedViewController", sender: nil)
+
     }
 
     override func didReceiveMemoryWarning() {

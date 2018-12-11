@@ -20,12 +20,12 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
         let navigationController = UINavigationController(rootViewController: pages)
 
-        pages.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Previous Page",
+        pages.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Previous Step",
                                                                  style: .plain,
                                                                  target: pages,
                                                                  action: #selector(PagesController.moveBack))
 
-        pages.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next Page",
+        pages.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next Step",
                                                                   style: .plain,
                                                                   target: pages,
                                                                   action: #selector(PagesController.moveForward))
