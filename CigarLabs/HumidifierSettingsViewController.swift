@@ -12,6 +12,10 @@ class HumidifierSettingsViewController: QuickTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initSettings()
+    }
+
+    private func initSettings() {
         let tempSection = RadioSection(title: "Temperature reading:", options: [
             OptionRow(title: "Celcius", isSelected: true, action: { [weak self] in self?.didToggleTempOption(post: self!.post!,$0) }),
             OptionRow(title: "Fahrenheit", isSelected: false, action: { [weak self] in self?.didToggleTempOption(post: self!.post!,$0) }),
@@ -45,28 +49,30 @@ class HumidifierSettingsViewController: QuickTableViewController {
             sentryAlert = true
         }
 
+        let switchesSection = Section(title: "", rows: [
+            SwitchRow(title: "Box Open Alerts", switchValue: boAlert, action: didToggleSwitch()),
+            SwitchRow(title: "Water Level Alerts", switchValue: wlAlert, action: didToggleSwitch()),
+            SwitchRow(title: "Seasoning Mode", switchValue: seasoningAlert, action: didToggleSwitch()),
+            SwitchRow(title: "Sentry Mode", switchValue: sentryAlert, action: didToggleSwitch()),
+            ])
+
         tableContents = [
             tempSection,
 
             powerSection,
 
-            Section(title: "", rows: [
-                SwitchRow(title: "Box Open Alerts", switchValue: boAlert, action: didToggleSwitch()),
-                SwitchRow(title: "Water Level Alerts", switchValue: wlAlert, action: didToggleSwitch()),
-                SwitchRow(title: "Seasoning Mode", switchValue: seasoningAlert, action: didToggleSwitch()),
-                SwitchRow(title: "Sentry Mode", switchValue: sentryAlert, action: didToggleSwitch()),
-                ]),
+            switchesSection,
 
-//            Section(title: "Tap Action", rows: [
-//                TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
-//                ]),
+            //            Section(title: "Tap Action", rows: [
+            //                TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
+            //                ]),
 
-//            Section(title: "Navigation", rows: [
-//                NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
-//                NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
-//                NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { _ in }),
-//                NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
-//                ]),
+            //            Section(title: "Navigation", rows: [
+            //                NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
+            //                NavigationRow(title: "CellStyle", subtitle: .belowTitle(".subtitle"), icon: .named("globe")),
+            //                NavigationRow(title: "CellStyle", subtitle: .rightAligned(".value1"), icon: .named("time"), action: { _ in }),
+            //                NavigationRow(title: "CellStyle", subtitle: .leftAligned(".value2"))
+            //                ]),
 
         ]
     }
@@ -94,7 +100,6 @@ class HumidifierSettingsViewController: QuickTableViewController {
     private func didTogglePowerOption() -> (Row) -> Void {
         return { [weak self] in
             if let option = $0 as? OptionRowCompatible, option.isSelected {
-//                print("here1", option.title)
                 if option.title == "Low" {
                     self!.post!["powerSetting"] = "Low"
                     self!.post!.saveInBackground()
@@ -133,15 +138,30 @@ class HumidifierSettingsViewController: QuickTableViewController {
                     self!.post!["seasoningModeSetting"] = row.switchValue
                     self!.post!.saveInBackground()
                     print("seasoningMode saved as ", row.switchValue)
+                    if row.switchValue == true {
+                        if self!.post!.object(forKey: "sentryModeSetting") as! Bool {
+                            self!.post!["sentryModeSetting"] = false
+                            self!.post!.saveInBackground()
+                            self!.initSettings()
+                        }
 
-//                    self!.seasoningModeButton.sendActions(for: .touchUpInside)
-                    self!.performSegue(withIdentifier: "seasoningMode", sender: nil)
+                        self!.performSegue(withIdentifier: "seasoningMode", sender: nil)
+                    }
                 }
                 if row.title == "Sentry Mode" {
                     self!.post!["sentryModeSetting"] = row.switchValue
                     self!.post!.saveInBackground()
                     print("sentryMode saved as ", row.switchValue)
-                    self!.performSegue(withIdentifier: "sentryMode", sender: nil)
+
+                    if row.switchValue == true {
+                        if self!.post!.object(forKey: "seasoningModeSetting") as! Bool {
+                            self!.post!["seasoningModeSetting"] = false
+                            self!.post!.saveInBackground()
+                            self!.initSettings()
+                        }
+
+                        self!.performSegue(withIdentifier: "sentryMode", sender: nil)
+                    }
                 }
             }
         }
