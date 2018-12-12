@@ -63,9 +63,9 @@ class HumidifierSettingsViewController: QuickTableViewController {
 
             switchesSection,
 
-            //            Section(title: "Tap Action", rows: [
-            //                TapActionRow(title: "Tap action", action: { [weak self] in self?.showAlert($0) })
-            //                ]),
+            Section(title: "Remove Humidifier", rows: [
+                TapActionRow(title: "Remove Humidifier", action: { [weak self] in self?.showAlertForRemoveHumidifier($0) })
+                ]),
 
             //            Section(title: "Navigation", rows: [
             //                NavigationRow(title: "CellStyle.default", subtitle: .none, icon: .named("gear")),
@@ -165,6 +165,22 @@ class HumidifierSettingsViewController: QuickTableViewController {
                 }
             }
         }
+    }
+
+    private func showAlertForRemoveHumidifier(_ sender: Row) {
+        let alertController = UIAlertController(title: "Are you sure you want to remove the humidifer? This action is irreversable.", message: nil, preferredStyle: .actionSheet)
+        let okAction = UIAlertAction(title: "Remove", style: .destructive, handler: { action in
+            print("ok clicked")
+            self.post!.deleteEventually()
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = sb.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
+                self.present(vc, animated: true, completion: nil)
+            }
+        })
+        alertController.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
