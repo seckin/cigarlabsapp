@@ -5,7 +5,6 @@ import Parse
 class DetailsViewController: UIViewController {
 
     @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var downLabel: UILabel!
     @IBOutlet weak var upLabel: UILabel!
@@ -27,7 +26,6 @@ class DetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         if let post = post {
             let caption = post["caption"] as? String
-            let author = post["author"] as? PFUser
 
             // Sets circle profile picture viewer
 //            userView.layer.borderWidth = 1
@@ -37,7 +35,6 @@ class DetailsViewController: UIViewController {
 //            userView.clipsToBounds = true
 
             captionLabel.text = caption
-            userLabel.text = author?.username
 
             let circlePath = UIBezierPath(arcCenter: CGPoint(x: 200,y: 350), radius: CGFloat(100), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
             let shapeLayer = CAShapeLayer()

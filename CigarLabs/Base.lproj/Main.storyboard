@@ -251,13 +251,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvE-yK-7Ag">
-                                <rect key="frame" x="147" y="139" width="100" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cX-hR-xDY" userLabel="Caption Label">
                                 <rect key="frame" x="72" y="101" width="250" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -339,7 +332,6 @@
                         <outlet property="downLabel" destination="g01-JK-qcE" id="1xR-aj-ReV"/>
                         <outlet property="setCountLabel" destination="kTB-Oo-7OA" id="HoP-Gp-7LE"/>
                         <outlet property="upLabel" destination="sEk-zy-fYx" id="50x-Eq-Zhc"/>
-                        <outlet property="userLabel" destination="OvE-yK-7Ag" id="3Qf-eF-hJ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4S-w3-v7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -349,7 +341,6 @@
         <!--Post View Controller-->
         <scene sceneID="dlh-wI-AZg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xVC-J6-gRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PostViewController" id="zz4-qi-w5w" customClass="PostViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cPp-vu-PMm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -362,6 +353,7 @@
                         <segue destination="pwf-kV-R9k" kind="show" identifier="AuthenticatedViewController2" id="u2R-6o-HiB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVC-J6-gRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3247" y="-304"/>
         </scene>
@@ -432,13 +424,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxp-8k-H87">
-                                <rect key="frame" x="147" y="139" width="100" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBW-KD-hOw" userLabel="Caption Label">
                                 <rect key="frame" x="72" y="101" width="250" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -454,7 +439,6 @@
                         <outlet property="captionLabel" destination="cBW-KD-hOw" id="sLU-yz-xK3"/>
                         <outlet property="countLabel" destination="SVM-of-Kyv" id="KBh-do-xKy"/>
                         <outlet property="setCountLabel" destination="LrA-6F-NlQ" id="7hl-is-xnr"/>
-                        <outlet property="userLabel" destination="Vxp-8k-H87" id="s9U-z2-dAG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMi-sm-gbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -490,13 +474,6 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qr7-Jd-mMX">
-                                <rect key="frame" x="143" y="129" width="100" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="When sentry mode is activated, RESPIRE will monitor your humidorand displayrealtime readings but will not add humidity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4Y-tT-Nc8">
                                 <rect key="frame" x="58" y="448" width="250" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -511,7 +488,6 @@
                     <connections>
                         <outlet property="captionLabel" destination="D9o-jj-Aoe" id="5dD-MI-rb2"/>
                         <outlet property="countLabel" destination="SwI-dt-qXE" id="nuq-Gt-ls7"/>
-                        <outlet property="userLabel" destination="Qr7-Jd-mMX" id="Fsx-j2-aQ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujI-6f-s6a" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -5,7 +5,7 @@ import Parse
 class SeasoningModeViewController: UIViewController {
 
     @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var userLabel: UILabel!
+
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var setCountLabel: UILabel!
 
@@ -19,10 +19,8 @@ class SeasoningModeViewController: UIViewController {
 
         if let post = post {
             let caption = post["caption"] as? String
-            let author = post["author"] as? PFUser
 
             captionLabel.text = caption
-            userLabel.text = author?.username
 
             let circlePath = UIBezierPath(arcCenter: CGPoint(x: 200,y: 350), radius: CGFloat(100), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
             let shapeLayer = CAShapeLayer()
