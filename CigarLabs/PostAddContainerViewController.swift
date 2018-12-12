@@ -16,11 +16,8 @@ class PostAddContainerViewController: UIViewController, UIImagePickerControllerD
     }
 
     override func viewDidAppear(_ animated: Bool) {
-//        self.performSegue(withIdentifier: "PostAddViewController", sender: nil)
-        var sb = UIStoryboard(name: "Main", bundle: nil)
-        print("sb:", sb)
+        let sb = UIStoryboard(name: "Main", bundle: nil)
         if let vc = sb.instantiateViewController(withIdentifier: "PostAddViewController") as? PostAddViewController {
-//            vc.newsObj = newsObj
             present(vc, animated: true, completion: nil)
         }
     }

@@ -110,7 +110,6 @@ class DetailsViewController: UIViewController {
 
     @IBAction func CigarLabsBackButtonTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "DetailView", sender: nil)
-        
     }
 
     @IBAction func upButtonTapped(_ sender: Any) {
