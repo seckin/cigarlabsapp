@@ -77,7 +77,6 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
         let post = feed[indexPath.row]
         let caption = post["caption"] as! String
-//        let author = post["author"] as! PFUser
 
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
@@ -89,7 +88,6 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         cell.colorHolder.layer.cornerRadius = cell.colorHolder.bounds.size.height / 2
         cell.colorHolder.layer.backgroundColor = UIColor.clear.cgColor
 
-//        cell.colorHolder.layer.fillColor = UIColor.clear.cgColor
         cell.colorHolder.layer.borderColor = UIColor.gray.cgColor
         cell.colorHolder.layer.borderWidth = 2.0
 
