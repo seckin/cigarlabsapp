@@ -68,7 +68,7 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         let post = feed[indexPath.row]
         post.saveInBackground()
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feed.count
     }
@@ -78,6 +78,10 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         let post = feed[indexPath.row]
         let caption = post["caption"] as! String
 //        let author = post["author"] as! PFUser
+
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = backgroundView
 
         print(cell.colorHolder.bounds.size.height)
 
@@ -90,7 +94,6 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         cell.colorHolder.layer.borderWidth = 2.0
 
         cell.captionLabel.text = caption
-//        cell.userLabel.text = author.username
 
         return cell
     }

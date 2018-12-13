@@ -106,7 +106,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="left" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="175" id="GTX-NY-n6R" customClass="PostTableViewCell" customModule="CigarLabs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GTX-NY-n6R" id="FCy-Xf-lCF">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="GTX-NY-n6R" id="FCy-Xf-lCF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="174.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
@@ -551,6 +551,6 @@
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="u2R-6o-HiB"/>
+        <segue reference="I4l-IJ-mxh"/>
     </inferredMetricsTieBreakers>
 </document>
