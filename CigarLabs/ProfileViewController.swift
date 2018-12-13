@@ -12,10 +12,14 @@ class ProfileViewController: QuickTableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var user = PFUser.current()
+        let fullName = user!["fullName"] as! String
+        let email = "email"//user!.object(forKey: "email") as! String
+
         tableContents = [
             Section(title: "Info", rows: [
-                NavigationRow(title: "Full Name", subtitle: .rightAligned("Seckin Can Sahin"), icon: .named("time"), action: showDetail()),
-                NavigationRow(title: "Email", subtitle: .rightAligned("seckincansahin@gmail.com"), icon: .named("time"), action: { _ in }),
+                NavigationRow(title: "Full Name", subtitle: .rightAligned(fullName), icon: .named("time"), action: showDetail()),
+                NavigationRow(title: "Email", subtitle: .rightAligned(email), icon: .named("time"), action: { _ in }),
                 ]),
 
             Section(title: "Settings", rows: [
@@ -35,85 +39,17 @@ class ProfileViewController: QuickTableViewController, UITextFieldDelegate {
         // ...
     }
 
-    private func didToggleTempOption(post: PFObject, _ sender: Row) {
-        print("tf called", sender.title)
-        if sender.title == "Celcius" {
-            post["temperatureReading"] = "C"
-            post.saveInBackground()
-            print("setting to C")
-        }
-        if sender.title == "Fahrenheit" {
-            post["temperatureReading"] = "F"
-            post.saveInBackground()
-            print("setting to F")
-        }
-    }
-
-    private func didTogglePowerOption() -> (Row) -> Void {
-        return { [weak self] in
-            if let option = $0 as? OptionRowCompatible, option.isSelected {
-                //                print("here1", option.title)
-                if option.title == "Low" {
-                    self!.post!["powerSetting"] = "Low"
-                    self!.post!.saveInBackground()
-                    print("setting to Low")
-                }
-                if option.title == "Medium" {
-                    self!.post!["powerSetting"] = "Medium"
-                    self!.post!.saveInBackground()
-                    print("setting to Medium")
-                }
-                if option.title == "High" {
-                    self!.post!["powerSetting"] = "High"
-                    self!.post!.saveInBackground()
-                    print("setting to High")
-                }
-            }
-        }
-    }
-
-    private func didToggleSwitch() -> (Row) -> Void {
-        return { [weak self] in
-            if let row = $0 as? SwitchRowCompatible {
-                let state = "\(row.title) = \(row.switchValue)"
-                print(state)
-                if row.title == "Box Open Alerts" {
-                    self!.post!["boxOpenAlertSetting"] = row.switchValue
-                    self!.post!.saveInBackground()
-                    print("boxOpen saved as ", row.switchValue)
-                }
-                if row.title == "Water Level Alerts" {
-                    self!.post!["waterLevelAlertSetting"] = row.switchValue
-                    self!.post!.saveInBackground()
-                    print("waterLevel saved as ", row.switchValue)
-                }
-                if row.title == "Seasoning Mode" {
-                    self!.post!["seasoningModeSetting"] = row.switchValue
-                    self!.post!.saveInBackground()
-                    print("seasoningMode saved as ", row.switchValue)
-
-                    //                    self!.seasoningModeButton.sendActions(for: .touchUpInside)
-                    self!.performSegue(withIdentifier: "seasoningMode", sender: nil)
-                }
-                if row.title == "Sentry Mode" {
-                    self!.post!["sentryModeSetting"] = row.switchValue
-                    self!.post!.saveInBackground()
-                    print("sentryMode saved as ", row.switchValue)
-                    self!.performSegue(withIdentifier: "sentryMode", sender: nil)
-                }
-            }
-        }
-    }
-
     private func showDetail() -> (Row) -> Void {
         return { [weak self] in
-            let detail = $0.title + ($0.subtitle?.text ?? "")
+            let detail = $0.title
             let controller = UIViewController()
             controller.view.backgroundColor = .white
             controller.title = detail
 
             let sampleTextField =  UITextField(frame: CGRect(x: 20, y: 100, width: 300, height: 40))
-            sampleTextField.placeholder = "Enter text here"
+//            sampleTextField.placeholder = ""
+            var user = PFUser.current()
+            sampleTextField.text = user!["fullName"] as! String
             sampleTextField.font = UIFont.systemFont(ofSize: 15)
             sampleTextField.borderStyle = UITextField.BorderStyle.roundedRect
             sampleTextField.autocorrectionType = UITextAutocorrectionType.no
@@ -125,7 +61,6 @@ class ProfileViewController: QuickTableViewController, UITextFieldDelegate {
             controller.view.addSubview(sampleTextField)
 
             self?.navigationController?.pushViewController(controller, animated: true)
-//            self?.showDebuggingText(detail + " is selected")
         }
     }
 
@@ -161,11 +96,17 @@ class ProfileViewController: QuickTableViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
         print("TextField did end editing method called")
+        var user = PFUser.current()
+        user?["fullName"] = textField.text
+        user?.saveInBackground()
     }
 
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         // if implemented, called in place of textFieldDidEndEditing:
-        print("TextField did end editing with reason method called")
+        print("TextField did end editing with reason method called", textField.text)
+        var user = PFUser.current()
+        user?["fullName"] = textField.text
+        user?.saveInBackground()
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
