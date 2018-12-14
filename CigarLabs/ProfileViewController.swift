@@ -12,7 +12,7 @@ class ProfileViewController: QuickTableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var user = PFUser.current()
+        let user = PFUser.current()
         let fullName = user!["fullName"] as! String
         let email = user!.email as! String
 
