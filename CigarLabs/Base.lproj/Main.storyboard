@@ -145,7 +145,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XRW-6s-BbE"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cigar Labs" id="DU7-ue-kx6">
+                    <navigationItem key="navigationItem" title="RESPIRE" id="DU7-ue-kx6">
                         <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="Y8N-ej-AXI">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" restorationIdentifier="Logout" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eee-ge-KjF">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
@@ -220,11 +220,11 @@
             </objects>
             <point key="canvasLocation" x="1972" y="525"/>
         </scene>
-        <!--Profile-->
+        <!--Account-->
         <scene sceneID="CTC-Ve-OqH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DIz-Wq-6ai" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="Xdh-ah-8gQ"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DIz-Wq-6ai" userLabel="Account" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Account" image="profile_tab" id="Xdh-ah-8gQ" userLabel="Account"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EQL-Vl-maa">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
