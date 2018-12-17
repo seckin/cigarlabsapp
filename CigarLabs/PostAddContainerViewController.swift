@@ -5,10 +5,10 @@ import ParseLiveQuery
 import Photos
 import Pages
 
-class PostAddContainerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class DeviceAddContainerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var captionField: UITextField!
     // initialize the following variables
-    var captionPost = ""
+    var captionDevice = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class PostAddContainerViewController: UIViewController, UIImagePickerControllerD
 
     override func viewDidAppear(_ animated: Bool) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = sb.instantiateViewController(withIdentifier: "PostAddViewController") as? PostAddViewController {
+        if let vc = sb.instantiateViewController(withIdentifier: "DeviceAddViewController") as? DeviceAddViewController {
             present(vc, animated: true, completion: nil)
         }
     }

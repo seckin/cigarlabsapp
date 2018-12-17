@@ -18,14 +18,14 @@ class DetailsViewController: UIViewController {
     var currentHumidity: Int!
     var setButtonCount: Int! // TODO: initialize this to the number read from the DB
 
-    var post: PFObject?
+    var device: PFObject?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let post = post {
-            let caption = post["caption"] as? String
+        if let device = device {
+            let caption = device["caption"] as? String
 
             // Sets circle profile picture viewer
 //            userView.layer.borderWidth = 1
@@ -49,7 +49,7 @@ class DetailsViewController: UIViewController {
 
 
 
-            currentHumidity = post["humidity"] as? Int
+            currentHumidity = device["humidity"] as? Int
             setButtonCount = currentHumidity
 //            let size:CGFloat = 55.0
 
@@ -132,12 +132,12 @@ class DetailsViewController: UIViewController {
     }
 
     @IBAction func setButtonTapped(_ sender: Any) {
-        if let post = post {
-            post["humidity"] = setButtonCount
+        if let device = device {
+            device["humidity"] = setButtonCount
     //        ProgressHUD.showSuccess("Update successful")
-            post.saveInBackground()
+            device.saveInBackground()
 
-//            post.saveInBackground { (success: Bool, error: Error?) in
+//            device.saveInBackground { (success: Bool, error: Error?) in
 //                completion?(success, error)
 //            }
         }
@@ -159,9 +159,9 @@ class DetailsViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let post = self.post
+        let device = self.device
         let humidifierSettingsViewController = segue.destination as! HumidifierSettingsViewController
-        humidifierSettingsViewController.post = post
+        humidifierSettingsViewController.device = device
     }
     
     /*

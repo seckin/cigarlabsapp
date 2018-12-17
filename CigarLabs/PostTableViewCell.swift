@@ -2,21 +2,21 @@
 import UIKit
 import Parse
 
-@objc protocol PostTableViewCellDelegate {
-    func postCell(_ cell: PostTableViewCell, didLike post: PFObject?)
+@objc protocol DeviceTableViewCellDelegate {
+    func deviceCell(_ cell: DeviceTableViewCell, didLike device: PFObject?)
 }
 
 
-class PostTableViewCell: UITableViewCell {
+class DeviceTableViewCell: UITableViewCell {
     
-    // identifier: PostCell
+    // identifier: DeviceCell
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var colorHolder: UIButton!
 
     var circleColor: CGColor = UIColor.clear.cgColor
 
-    weak var delegate: PostTableViewCellDelegate?
-    var post: PFObject?
+    weak var delegate: DeviceTableViewCellDelegate?
+    var device: PFObject?
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -5,10 +5,10 @@ import ParseLiveQuery
 import Photos
 import Pages
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class DeviceViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var captionField: UITextField!
     // initialize the following variables
-    var captionPost = ""
+    var captionDevice = ""
     var window: UIWindow?
 
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         viewController5.imageView.image = UIImage(named:"step_5_wifi_password_for_selected_network")
         viewControllers.append(viewController5)
 
-        let viewController6 = PostAddContainerViewController()
+        let viewController6 = DeviceAddContainerViewController()
         viewControllers.append(viewController6)
 
         let pages = PagesController(viewControllers)

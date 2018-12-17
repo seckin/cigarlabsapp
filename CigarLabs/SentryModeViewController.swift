@@ -10,13 +10,13 @@ class SentryModeViewController: UIViewController {
     var currentHumidity: Int!
     var setButtonCount: Int! // TODO: initialize this to the number read from the DB
 
-    var post: PFObject?
+    var device: PFObject?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let post = post {
-            let caption = post["caption"] as? String
+        if let device = device {
+            let caption = device["caption"] as? String
 
             captionLabel.text = caption
 
@@ -30,7 +30,7 @@ class SentryModeViewController: UIViewController {
 
 
             currentHumidity = 80
-            //post["temperature"] as? Int
+            //device["temperature"] as? Int
             setButtonCount = currentHumidity
             countLabel.text = String(currentHumidity)
             countLabel.textColor = UIColor.darkGray

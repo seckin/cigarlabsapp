@@ -2,9 +2,9 @@
 import UIKit
 import Parse
 
-class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostTableViewCellDelegate {
+class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DeviceTableViewCellDelegate {
 
-    @IBOutlet weak var tableViewPosts: UITableView!
+    @IBOutlet weak var tableViewDevices: UITableView!
     var refreshControl: UIRefreshControl!
     var feed: [PFObject] = []
     @IBOutlet weak var noDevicesLabel: UILabel!
@@ -17,11 +17,11 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         if refreshControl != nil {
-            tableViewPosts.insertSubview(refreshControl, at: 0)
+            tableViewDevices.insertSubview(refreshControl, at: 0)
         }
-        tableViewPosts.dataSource = self
-        tableViewPosts.delegate = self
-        tableViewPosts.separatorStyle = .none
+        tableViewDevices.dataSource = self
+        tableViewDevices.delegate = self
+        tableViewDevices.separatorStyle = .none
         
         pullRefresh()
     }
@@ -35,21 +35,21 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
     }
 
     func pullRefresh() {
-        var feedPosts: [PFObject] = []
-        let query = PFQuery(className: "Post")
+        var feedDevices: [PFObject] = []
+        let query = PFQuery(className: "Device")
         query.order(byDescending: "createdAt")
         query.includeKey("author")
         query.limit = 20
-        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+        query.findObjectsInBackground { (devices: [PFObject]?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                if let posts = posts {
-                    for post in posts {
-                        feedPosts.append(post)
+                if let devices = devices {
+                    for device in devices {
+                        feedDevices.append(device)
                     }
-                    self.feed = feedPosts
-                    self.tableViewPosts.reloadData()
+                    self.feed = feedDevices
+                    self.tableViewDevices.reloadData()
                     print("Feed reloaded")
                 }
             }
@@ -61,12 +61,12 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         refreshControl.endRefreshing()
     }
 
-    // from PostTableViewCellDelegate
-    func postCell(_ cell: PostTableViewCell, didLike post: PFObject?) {
-        print("called postcell")
-        let indexPath = tableViewPosts.indexPath(for: cell)!
-        let post = feed[indexPath.row]
-        post.saveInBackground()
+    // from DeviceTableViewCellDelegate
+    func deviceCell(_ cell: DeviceTableViewCell, didLike device: PFObject?) {
+        print("called devicecell")
+        let indexPath = tableViewDevices.indexPath(for: cell)!
+        let device = feed[indexPath.row]
+        device.saveInBackground()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,9 +74,9 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
-        let post = feed[indexPath.row]
-        let caption = post["caption"] as! String
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DeviceCell", for: indexPath) as! DeviceTableViewCell
+        let device = feed[indexPath.row]
+        let caption = device["caption"] as! String
 
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
@@ -98,10 +98,10 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
-        if let indexPath = tableViewPosts.indexPath(for: cell) {
-            let post = feed[indexPath.row]
+        if let indexPath = tableViewDevices.indexPath(for: cell) {
+            let device = feed[indexPath.row]
             let detailsViewController = segue.destination as! DetailsViewController
-            detailsViewController.post = post
+            detailsViewController.device = device
         }
     }
     /*

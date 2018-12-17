@@ -5,11 +5,11 @@ import ParseLiveQuery
 import Photos
 import Pages
 
-class PostAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class DeviceAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     // initialize the following variables
-    var captionPost = ""
+    var captionDevice = ""
     var window: UIWindow?
 
     override func viewDidLoad() {
@@ -27,14 +27,14 @@ class PostAddViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func onShare(_ sender: Any) {
         //  MBProgressHUD.showAdded(to: self.view, animated: true)
         print("onShare was called")
-        captionPost = captionField.text ?? ""
-        Post.postUserImage(withCaption: captionPost) { (status: Bool, error: Error?) in
+        captionDevice = captionField.text ?? ""
+        Device.postUserImage(withCaption: captionDevice) { (status: Bool, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                print("Post successful")
+                print("Device successful")
                 //       MBProgressHUD.hide(for: self.view, animated: true)
-                self.captionPost = ""
+                self.captionDevice = ""
 
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 if let vc = sb.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {

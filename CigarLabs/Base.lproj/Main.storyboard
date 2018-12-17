@@ -103,7 +103,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="left" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="175" id="GTX-NY-n6R" customClass="PostTableViewCell" customModule="CigarLabs" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="left" selectionStyle="default" indentationWidth="10" reuseIdentifier="DeviceCell" rowHeight="175" id="GTX-NY-n6R" customClass="DeviceTableViewCell" customModule="CigarLabs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="GTX-NY-n6R" id="FCy-Xf-lCF">
@@ -158,7 +158,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableViewPosts" destination="mUb-pt-JgI" id="b9T-li-Xet"/>
+                        <outlet property="tableViewDevices" destination="mUb-pt-JgI" id="Wgq-5K-9aw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d99-2L-Ywm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -338,10 +338,10 @@
             </objects>
             <point key="canvasLocation" x="21.600000000000001" y="524.8875562218891"/>
         </scene>
-        <!--Post View Controller-->
+        <!--Device View Controller-->
         <scene sceneID="dlh-wI-AZg">
             <objects>
-                <viewController storyboardIdentifier="PostViewController" id="zz4-qi-w5w" customClass="PostViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeviceViewController" id="zz4-qi-w5w" customClass="DeviceViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cPp-vu-PMm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -494,10 +494,10 @@
             </objects>
             <point key="canvasLocation" x="1205.5999999999999" y="2230.434782608696"/>
         </scene>
-        <!--PostAddViewController-->
+        <!--DeviceAddViewController-->
         <scene sceneID="0oy-80-9Kb">
             <objects>
-                <viewController storyboardIdentifier="PostAddViewController" title="PostAddViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KCk-6H-lW4" customClass="PostAddViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DeviceAddViewController" title="DeviceAddViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KCk-6H-lW4" customClass="DeviceAddViewController" customModule="CigarLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hPn-WJ-HGB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -530,7 +530,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <accessibility key="accessibilityConfiguration" identifier="PostAddViewController"/>
+                        <accessibility key="accessibilityConfiguration" identifier="DeviceAddViewController"/>
                         <viewLayoutGuide key="safeArea" id="OTt-dj-09I"/>
                     </view>
                     <connections>
@@ -551,6 +551,6 @@
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I4l-IJ-mxh"/>
+        <segue reference="u2R-6o-HiB"/>
     </inferredMetricsTieBreakers>
 </document>

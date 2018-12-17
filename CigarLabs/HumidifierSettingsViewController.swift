@@ -6,7 +6,7 @@ import Parse
 
 class HumidifierSettingsViewController: QuickTableViewController {
 
-    var post: PFObject?
+    var device: PFObject?
     @IBOutlet weak var seasoningModeButton: UIButton!
 
     override func viewDidLoad() {
@@ -17,8 +17,8 @@ class HumidifierSettingsViewController: QuickTableViewController {
 
     private func initSettings() {
         let tempSection = RadioSection(title: "Temperature reading:", options: [
-            OptionRow(title: "Celcius", isSelected: true, action: { [weak self] in self?.didToggleTempOption(post: self!.post!,$0) }),
-            OptionRow(title: "Fahrenheit", isSelected: false, action: { [weak self] in self?.didToggleTempOption(post: self!.post!,$0) }),
+            OptionRow(title: "Celcius", isSelected: true, action: { [weak self] in self?.didToggleTempOption(device: self!.device!,$0) }),
+            OptionRow(title: "Fahrenheit", isSelected: false, action: { [weak self] in self?.didToggleTempOption(device: self!.device!,$0) }),
             ])
         tempSection.alwaysSelectsOneOption = true
 
@@ -30,22 +30,22 @@ class HumidifierSettingsViewController: QuickTableViewController {
         powerSection.alwaysSelectsOneOption = true
 
         var boAlert = false
-        if(self.post!["boxOpenAlertSetting"] != nil && self.post!.object(forKey: "boxOpenAlertSetting") as! Bool) {
+        if(self.device!["boxOpenAlertSetting"] != nil && self.device!.object(forKey: "boxOpenAlertSetting") as! Bool) {
             boAlert = true
         }
 
         var wlAlert = false
-        if(self.post!["waterLevelAlertSetting"] != nil && self.post!.object(forKey: "waterLevelAlertSetting") as! Bool) {
+        if(self.device!["waterLevelAlertSetting"] != nil && self.device!.object(forKey: "waterLevelAlertSetting") as! Bool) {
             wlAlert = true
         }
 
         var seasoningAlert = false
-        if(self.post!["seasoningModeSetting"] != nil && self.post!.object(forKey: "seasoningModeSetting") as! Bool) {
+        if(self.device!["seasoningModeSetting"] != nil && self.device!.object(forKey: "seasoningModeSetting") as! Bool) {
             seasoningAlert = true
         }
 
         var sentryAlert = false
-        if(self.post!["sentryModeSetting"] != nil && self.post!.object(forKey: "sentryModeSetting") as! Bool) {
+        if(self.device!["sentryModeSetting"] != nil && self.device!.object(forKey: "sentryModeSetting") as! Bool) {
             sentryAlert = true
         }
 
@@ -83,16 +83,16 @@ class HumidifierSettingsViewController: QuickTableViewController {
 //        // ...
 //    }
 
-    private func didToggleTempOption(post: PFObject, _ sender: Row) {
+    private func didToggleTempOption(device: PFObject, _ sender: Row) {
         print("tf called", sender.title)
         if sender.title == "Celcius" {
-            post["temperatureReading"] = "C"
-            post.saveInBackground()
+            device["temperatureReading"] = "C"
+            device.saveInBackground()
             print("setting to C")
         }
         if sender.title == "Fahrenheit" {
-            post["temperatureReading"] = "F"
-            post.saveInBackground()
+            device["temperatureReading"] = "F"
+            device.saveInBackground()
             print("setting to F")
         }
     }
@@ -101,18 +101,18 @@ class HumidifierSettingsViewController: QuickTableViewController {
         return { [weak self] in
             if let option = $0 as? OptionRowCompatible, option.isSelected {
                 if option.title == "Low" {
-                    self!.post!["powerSetting"] = "Low"
-                    self!.post!.saveInBackground()
+                    self!.device!["powerSetting"] = "Low"
+                    self!.device!.saveInBackground()
                     print("setting to Low")
                 }
                 if option.title == "Medium" {
-                    self!.post!["powerSetting"] = "Medium"
-                    self!.post!.saveInBackground()
+                    self!.device!["powerSetting"] = "Medium"
+                    self!.device!.saveInBackground()
                     print("setting to Medium")
                 }
                 if option.title == "High" {
-                    self!.post!["powerSetting"] = "High"
-                    self!.post!.saveInBackground()
+                    self!.device!["powerSetting"] = "High"
+                    self!.device!.saveInBackground()
                     print("setting to High")
                 }
             }
@@ -125,35 +125,35 @@ class HumidifierSettingsViewController: QuickTableViewController {
                 let state = "\(row.title) = \(row.switchValue)"
                 print(state)
                 if row.title == "Box Open Alerts" {
-                    self!.post!["boxOpenAlertSetting"] = row.switchValue
-                    self!.post!.saveInBackground()
+                    self!.device!["boxOpenAlertSetting"] = row.switchValue
+                    self!.device!.saveInBackground()
                     print("boxOpen saved as ", row.switchValue)
                 }
                 if row.title == "Water Level Alerts" {
-                    self!.post!["waterLevelAlertSetting"] = row.switchValue
-                    self!.post!.saveInBackground()
+                    self!.device!["waterLevelAlertSetting"] = row.switchValue
+                    self!.device!.saveInBackground()
                     print("waterLevel saved as ", row.switchValue)
                 }
                 if row.title == "Seasoning Mode" {
-                    self!.post!["seasoningModeSetting"] = row.switchValue
-                    self!.post!.saveInBackground()
+                    self!.device!["seasoningModeSetting"] = row.switchValue
+                    self!.device!.saveInBackground()
                     print("seasoningMode saved as ", row.switchValue)
                     if row.switchValue == true {
-                        self!.post!["sentryModeSetting"] = false
-                        self!.post!.saveInBackground()
+                        self!.device!["sentryModeSetting"] = false
+                        self!.device!.saveInBackground()
                         self!.initSettings()
 
                         self!.performSegue(withIdentifier: "seasoningMode", sender: nil)
                     }
                 }
                 if row.title == "Sentry Mode" {
-                    self!.post!["sentryModeSetting"] = row.switchValue
-                    self!.post!.saveInBackground()
+                    self!.device!["sentryModeSetting"] = row.switchValue
+                    self!.device!.saveInBackground()
                     print("sentryMode saved as ", row.switchValue)
 
                     if row.switchValue == true {
-                        self!.post!["seasoningModeSetting"] = false
-                        self!.post!.saveInBackground()
+                        self!.device!["seasoningModeSetting"] = false
+                        self!.device!.saveInBackground()
                         self!.initSettings()
 
                         self!.performSegue(withIdentifier: "sentryMode", sender: nil)
@@ -167,7 +167,7 @@ class HumidifierSettingsViewController: QuickTableViewController {
         let alertController = UIAlertController(title: "Are you sure you want to remove the humidifer? This action is irreversable.", message: nil, preferredStyle: .actionSheet)
         let okAction = UIAlertAction(title: "Remove", style: .destructive, handler: { action in
             print("ok clicked")
-            self.post!.deleteEventually()
+            self.device!.deleteEventually()
             let sb = UIStoryboard(name: "Main", bundle: nil)
             if let vc = sb.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
                 self.present(vc, animated: true, completion: nil)
@@ -180,14 +180,14 @@ class HumidifierSettingsViewController: QuickTableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let post = self.post
+        let device = self.device
         if segue.identifier == "seasoningMode" {
             let seasoningModeViewController = segue.destination as! SeasoningModeViewController
-            seasoningModeViewController.post = post
+            seasoningModeViewController.device = device
         }
         if segue.identifier == "sentryMode" {
             let sentryModeViewController = segue.destination as! SentryModeViewController
-            sentryModeViewController.post = post
+            sentryModeViewController.device = device
         }
     }
 
