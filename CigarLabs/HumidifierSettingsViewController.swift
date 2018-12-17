@@ -139,11 +139,9 @@ class HumidifierSettingsViewController: QuickTableViewController {
                     self!.post!.saveInBackground()
                     print("seasoningMode saved as ", row.switchValue)
                     if row.switchValue == true {
-                        if self!.post!.object(forKey: "sentryModeSetting") as! Bool {
-                            self!.post!["sentryModeSetting"] = false
-                            self!.post!.saveInBackground()
-                            self!.initSettings()
-                        }
+                        self!.post!["sentryModeSetting"] = false
+                        self!.post!.saveInBackground()
+                        self!.initSettings()
 
                         self!.performSegue(withIdentifier: "seasoningMode", sender: nil)
                     }
@@ -154,11 +152,9 @@ class HumidifierSettingsViewController: QuickTableViewController {
                     print("sentryMode saved as ", row.switchValue)
 
                     if row.switchValue == true {
-                        if self!.post!.object(forKey: "seasoningModeSetting") as! Bool {
-                            self!.post!["seasoningModeSetting"] = false
-                            self!.post!.saveInBackground()
-                            self!.initSettings()
-                        }
+                        self!.post!["seasoningModeSetting"] = false
+                        self!.post!.saveInBackground()
+                        self!.initSettings()
 
                         self!.performSegue(withIdentifier: "sentryMode", sender: nil)
                     }
