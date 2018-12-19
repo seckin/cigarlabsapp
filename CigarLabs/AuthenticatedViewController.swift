@@ -1,6 +1,7 @@
 
 import UIKit
 import Parse
+import Amplitude_iOS
 
 class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DeviceTableViewCellDelegate {
 
@@ -24,6 +25,8 @@ class AuthenticatedViewController: UIViewController, UITableViewDataSource, UITa
         tableViewDevices.separatorStyle = .none
         
         pullRefresh()
+
+        Amplitude.instance().logEvent("Logged In")
     }
 
     @IBAction func logOutPressed(_ sender: Any) {

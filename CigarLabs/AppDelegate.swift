@@ -1,6 +1,7 @@
 
 import UIKit
 import Parse
+import Amplitude_iOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("... is already logged in")
             window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
         }
+
+        Amplitude.instance().initializeApiKey("6d14b24916e42cbf2389aa43cf731aa0")
         
         return true
     }
